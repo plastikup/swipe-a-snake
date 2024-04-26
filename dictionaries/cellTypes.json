@@ -1,0 +1,86 @@
+{
+    "e": {
+        "_description": "an empty tile. snake may go through easily.",
+        "drawingReferenceCell": {
+            "x": 0,
+            "y": 1
+        }
+    },
+    "w": {
+        "_description": "a wall. how boring.",
+        "drawingReferenceCell": {
+            "x": 12,
+            "y": 0
+        }
+    },
+    "W": {
+        "_description": "another wall. how boring too.",
+        "drawingReferenceCell": {
+            "x": 13,
+            "y": 0
+        }
+    },
+    "wN": {
+        "_description": "wall facing north.",
+        "drawingReferenceCell": {
+            "x": 10,
+            "y": 2
+        }
+    },
+    "wS": {
+        "_description": "wall facing south.",
+        "drawingReferenceCell": {
+            "x": 7,
+            "y": 2
+        }
+    },
+    "wW": {
+        "_description": "wall facing south.",
+        "drawingReferenceCell": {
+            "x": 9,
+            "y": 2
+        }
+    },
+    "wE": {
+        "_description": "wall facing south.",
+        "drawingReferenceCell": {
+            "x": 8,
+            "y": 2
+        }
+    },
+    "s": {
+        "_description": "snake body. RUNNN!",
+        "drawingReferenceCell": {
+            "x": 5,
+            "y": 3
+        }
+    },
+    "hN": {
+        "_description": "snake head facing north. dont die!",
+        "drawingReferenceCell": {
+            "x": 1,
+            "y": 3
+        }
+    },
+    "hS": {
+        "_description": "snake head facing south. dont die!",
+        "drawingReferenceCell": {
+            "x": 3,
+            "y": 3
+        }
+    },
+    "hW": {
+        "_description": "snake head facing west. dont die!",
+        "drawingReferenceCell": {
+            "x": 2,
+            "y": 3
+        }
+    },
+    "hE": {
+        "_description": "snake head facing east. dont die!",
+        "drawingReferenceCell": {
+            "x": 4,
+            "y": 3
+        }
+    }
+}
