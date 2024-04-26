@@ -1,4 +1,4 @@
-import { ctx, canvasSize } from './scripts/canvasConfig.js';
+import { canvas, ctx, canvasSize } from './scripts/canvasConfig.js';
 import { Sandbox } from './scripts/sandbox.js';
 import { Snake } from './scripts/snake.js';
 
@@ -9,6 +9,13 @@ let getCurrentLevelJson = () => allLevelsJson[currentLevel];
 
 let gameSandbox;
 let snake;
+
+/* GAME GESTURES */
+// eslint-disable-next-line no-undef
+const gest = new Hammer(canvas);
+gest.on('panstart', function (event) {
+	console.log(event);
+});
 
 /* GAME */
 let lastTS = 0;
