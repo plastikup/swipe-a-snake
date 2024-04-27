@@ -5,33 +5,48 @@ import { Snake } from './scripts/snake.js';
 /* GLOB VARIABLES */
 let allLevelsJson;
 let currentLevel = 1;
-let getCurrentLevelJson = () => allLevelsJson[currentLevel];
+let getCurrentLevelJson = () => allLevelsJson[currentLevel]; //! use gameSandbox.grid to access updated level data instead
 
+export let cellTypesJson;
 let gameSandbox;
 let snake;
 
 /* GAME GESTURES */
 // eslint-disable-next-line no-undef
 const gest = new Hammer(canvas);
-gest.on('panstart', function (event) {
+let panGesture = undefined;
+let panGestureLock = false;
+gest.on('panend', function (event) {
+	if (event.additionalEvent === undefined || panGestureLock) return;
+
+	switch (event.additionalEvent) {
+		case 'panright':
+			panGesture = 0;
+			break;
+		case 'panup':
+			panGesture = 1;
+			break;
+		case 'panleft':
+			panGesture = 2;
+			break;
+		case 'pandown':
+			panGesture = 3;
+			break;
+
+		default:
+			break;
+	}
+	panGestureLock = true;
 	console.log(event);
 });
 
 /* GAME */
-let lastTS = 0;
-let FPS = 60;
-let delta = 1;
 function loop(ts) {
 	ctx.clearRect(0, 0, canvasSize, canvasSize);
 
-	//* calculate the delta multiplier
-	FPS = 1000 / (ts - lastTS) || 60;
-	delta = 60 / FPS;
-	lastTS = ts;
-
 	//* loop the main cores of the game
 	gameSandbox.loop();
-	snake.loop();
+	[panGesture, panGestureLock] = snake.loop(panGesture, panGestureLock);
 
 	requestAnimationFrame(loop);
 }
@@ -43,6 +58,15 @@ async function init() {
 			//levels = Object.values(levelsFetched);
 			allLevelsJson = levelsFetched;
 			console.log(allLevelsJson);
+		})
+		.catch((error) => {
+			console.error('Error loading levels JSON:', error);
+		});
+	await fetch('/dictionaries/cellTypes.json')
+		.then((res) => res.json())
+		.then((levelsFetched) => {
+			cellTypesJson = levelsFetched;
+			console.log(cellTypesJson);
 		})
 		.catch((error) => {
 			console.error('Error loading levels JSON:', error);

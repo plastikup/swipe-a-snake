@@ -4,83 +4,95 @@
         "drawingReferenceCell": {
             "x": 0,
             "y": 1
-        }
+        },
+        "canPassThrough": true
     },
     "w": {
         "_description": "a wall. how boring.",
         "drawingReferenceCell": {
             "x": 12,
             "y": 0
-        }
+        },
+        "canPassThrough": false
     },
     "W": {
         "_description": "another wall. how boring too.",
         "drawingReferenceCell": {
             "x": 13,
             "y": 0
-        }
+        },
+        "canPassThrough": false
     },
     "wN": {
         "_description": "wall facing north.",
         "drawingReferenceCell": {
             "x": 10,
             "y": 2
-        }
+        },
+        "canPassThrough": false
     },
     "wS": {
         "_description": "wall facing south.",
         "drawingReferenceCell": {
             "x": 7,
             "y": 2
-        }
+        },
+        "canPassThrough": false
     },
     "wW": {
         "_description": "wall facing south.",
         "drawingReferenceCell": {
             "x": 9,
             "y": 2
-        }
+        },
+        "canPassThrough": false
     },
     "wE": {
         "_description": "wall facing south.",
         "drawingReferenceCell": {
             "x": 8,
             "y": 2
-        }
+        },
+        "canPassThrough": false
     },
     "s": {
         "_description": "snake body. RUNNN!",
         "drawingReferenceCell": {
             "x": 5,
             "y": 3
-        }
+        },
+        "canPassThrough": false
     },
     "hN": {
         "_description": "snake head facing north. dont die!",
         "drawingReferenceCell": {
             "x": 1,
             "y": 3
-        }
+        },
+        "canPassThrough": false
     },
     "hS": {
         "_description": "snake head facing south. dont die!",
         "drawingReferenceCell": {
             "x": 3,
             "y": 3
-        }
+        },
+        "canPassThrough": false
     },
     "hW": {
         "_description": "snake head facing west. dont die!",
         "drawingReferenceCell": {
             "x": 2,
             "y": 3
-        }
+        },
+        "canPassThrough": false
     },
     "hE": {
         "_description": "snake head facing east. dont die!",
         "drawingReferenceCell": {
             "x": 4,
             "y": 3
-        }
+        },
+        "canPassThrough": false
     }
 }
