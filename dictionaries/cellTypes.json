@@ -115,5 +115,23 @@
         },
         "drawingSizeRatio": 0.8,
         "collisionRule": "collectible"
+    },
+    "a": {
+        "_description": "apple MIAM MIAM",
+        "drawingReferenceCell": {
+            "x": 6,
+            "y": 0
+        },
+        "drawingSizeRatio": 0.8,
+        "collisionRule": "collectible"
+    },
+    "A": {
+        "_description": "golden apple. much better.",
+        "drawingReferenceCell": {
+            "x": 6,
+            "y": 1
+        },
+        "drawingSizeRatio": 0.8,
+        "collisionRule": "collectible"
     }
 }

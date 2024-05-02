@@ -43,6 +43,14 @@ export class Snake {
 						// biscuits
 						biscuits++;
 						break;
+					case 'a':
+						// apple
+						this.snakeJson.push({ ...this.snakeJson[this.snakeJson.length] });
+						break;
+					case 'A':
+						// golden apple
+						this.snakeJson.push({ ...this.snakeJson[this.snakeJson.length] }, { ...this.snakeJson[this.snakeJson.length] });
+						break;
 
 					default:
 						console.warn('unknown cellType.');
