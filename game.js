@@ -11,6 +11,8 @@ export let cellTypesJson;
 let gameSandbox;
 let snake;
 
+let biscuits = +localStorage.getItem('biscuits') || 0;
+
 /* GAME GESTURES */
 // eslint-disable-next-line no-undef
 const gest = new Hammer(canvas);
@@ -46,7 +48,13 @@ function loop() {
 
 	//* loop the main cores of the game
 	gameSandbox.loop();
-	[panGesture, panGestureLock] = snake.loop(panGesture, panGestureLock);
+	[panGesture, panGestureLock, biscuits] = snake.loop(panGesture, panGestureLock, biscuits);
+
+	//* for debug purposes only
+	window.selfVars = {
+		snake: snake,
+		biscuits: biscuits,
+	};
 
 	requestAnimationFrame(loop);
 }
