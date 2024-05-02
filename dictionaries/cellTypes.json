@@ -114,6 +114,6 @@
             "y": 3
         },
         "drawingSizeRatio": 0.8,
-        "collisionRule": "collectable"
+        "collisionRule": "collectible"
     }
 }

@@ -41,7 +41,7 @@ gest.on('panend', function (event) {
 });
 
 /* GAME */
-function loop(ts) {
+function loop() {
 	ctx.clearRect(0, 0, canvasSize, canvasSize);
 
 	//* loop the main cores of the game

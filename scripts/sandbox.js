@@ -25,7 +25,7 @@ export class Sandbox {
 	}
 }
 
-class Cell {
+export class Cell {
 	constructor(gx, gy, cellType, oo) {
 		this.oo = oo;
 
