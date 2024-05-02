@@ -26,7 +26,7 @@ export class Sandbox {
 }
 
 export class Cell {
-	constructor(gx, gy, cellType, oo, isAnimated) {
+	constructor(gx, gy, cellDatum, oo, isAnimated) {
 		this.oo = oo;
 
 		this.gx = gx;
@@ -40,11 +40,11 @@ export class Cell {
 			animationProgress: (this.gx + this.gy) * -1,
 		};
 
-		this.cellType = cellType;
+		this.cellDatum = cellDatum;
 	}
 
 	draw() {
-		drawCell(this.x, this.y, this.size * this.animation.animationSize, this.cellType);
+		drawCell(this.x, this.y, this.size * this.animation.animationSize, this.cellDatum.cellType);
 
 		if (this.animation.enabled) {
 			if (this.animation.animationProgress >= 0) {

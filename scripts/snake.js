@@ -35,10 +35,10 @@ export class Snake {
 			// exit if snake body
 			if (this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0) return [undefined, false, biscuits];
 			// exit if solid block
-			if (cellTypesJson[nextCell.cellType].collisionRule === 'solid') return [undefined, false, biscuits];
+			if (cellTypesJson[nextCell.cellDatum.cellType].collisionRule === 'solid') return [undefined, false, biscuits];
 			// execute collectible rulesets
-			if (cellTypesJson[nextCell.cellType].collisionRule === 'collectible') {
-				switch (nextCell.cellType) {
+			if (cellTypesJson[nextCell.cellDatum.cellType].collisionRule === 'collectible') {
+				switch (nextCell.cellDatum.cellType) {
 					case 'b':
 						// biscuits
 						biscuits++;
@@ -56,7 +56,8 @@ export class Snake {
 						console.warn('unknown cellType.');
 						break;
 				}
-				this.gameSandbox.grid[nextY][nextX] = new Cell(nextX, nextY, 'e', this.gameSandbox, false);
+
+				this.gameSandbox.grid[nextY][nextX] = new Cell(nextX, nextY, { cellType: 'e' }, this.gameSandbox, false);
 			}
 
 			//* displace the head of the snake

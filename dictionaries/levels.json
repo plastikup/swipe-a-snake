@@ -5,14 +5,14 @@
             "height": 8
         },
         "datum": [
-            ["w", "wS", "wS", "wS", "wS", "wS","wS", "w"],
-            ["wE", "e", "e", "a", "e", "e", "e", "wW"],
-            ["wE", "e", "e", "e", "e", "e", "e", "wW"],
-            ["wE", "e", "e", "e", "e", "e", "e", "wW"],
-            ["wE", "e", "A", "e", "e", "e", "e", "wW"],
-            ["wE", "e", "e", "e", "b", "e", "e", "wW"],
-            ["wE", "e", "e", "w", "e", "e", "e", "wW"],
-            ["w", "wN", "wN", "w", "wN","wN","wN", "w"]
+            [{"cellType":"w"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"},{"cellType":"wS"}, {"cellType":"w"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"a"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"A"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"b"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"w"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"w"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"w"}, {"cellType":"wN"},{"cellType":"wN"},{"cellType":"wN"}, {"cellType":"w"}]
         ],
         "snake": [{ "x": 5, "y": 2, "head": true }, { "x": 4, "y": 2 }, { "x": 3, "y": 2 }, { "x": 2, "y": 2 }]
     }
