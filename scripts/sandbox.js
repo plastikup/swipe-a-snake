@@ -11,7 +11,7 @@ export class Sandbox {
 		for (let i = 0; i < this.height; i++) {
 			this.grid[i] = [];
 			for (let j = 0; j < this.width; j++) {
-				this.grid[i][j] = new Cell(j, i, levelJson[i][j], this);
+				this.grid[i][j] = new Cell(j, i, levelJson[i][j], this, true);
 			}
 		}
 	}
@@ -26,22 +26,36 @@ export class Sandbox {
 }
 
 export class Cell {
-	constructor(gx, gy, cellType, oo) {
+	constructor(gx, gy, cellType, oo, isAnimated) {
 		this.oo = oo;
 
 		this.gx = gx;
 		this.gy = gy;
 		[this.x, this.y, this.size] = calculateDimensions(this.gx, this.gy, this.oo);
 
+		this.animation = {
+			enabled: isAnimated,
+			animationSize: isAnimated ? 0 : 1,
+			animationVelocity: 0,
+			animationProgress: (this.gx + this.gy) * -1,
+		};
+
 		this.cellType = cellType;
 	}
 
 	draw() {
-		/*
-		ctx.fillStyle = '#FFF';
-		ctx.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size - 1, this.size - 1);
-		*/
-		drawCell(this.x, this.y, this.size, this.cellType);
+		drawCell(this.x, this.y, this.size * this.animation.animationSize, this.cellType);
+
+		if (this.animation.enabled) {
+			if (this.animation.animationProgress >= 0) {
+				this.animation.animationVelocity += (1 - this.animation.animationSize) * 0.1;
+				this.animation.animationSize += this.animation.animationVelocity *= 0.8;
+			}
+
+			this.animation.animationProgress++;
+
+			if (this.animation.animationProgress > 120) this.animation.enabled = false;
+		}
 	}
 }
 

@@ -56,7 +56,7 @@ export class Snake {
 						console.warn('unknown cellType.');
 						break;
 				}
-				this.gameSandbox.grid[nextY][nextX] = new Cell(nextX, nextY, 'e', this.gameSandbox);
+				this.gameSandbox.grid[nextY][nextX] = new Cell(nextX, nextY, 'e', this.gameSandbox, false);
 			}
 
 			//* displace the head of the snake
