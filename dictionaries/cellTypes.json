@@ -5,7 +5,8 @@
             "x": 0,
             "y": 1
         },
-        "canPassThrough": true
+        "drawingSizeRatio": 1,
+        "collisionRule": "void"
     },
     "w": {
         "_description": "a wall. how boring.",
@@ -13,7 +14,8 @@
             "x": 12,
             "y": 0
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "W": {
         "_description": "another wall. how boring too.",
@@ -21,7 +23,8 @@
             "x": 13,
             "y": 0
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "wN": {
         "_description": "wall facing north.",
@@ -29,7 +32,8 @@
             "x": 10,
             "y": 2
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "wS": {
         "_description": "wall facing south.",
@@ -37,7 +41,8 @@
             "x": 7,
             "y": 2
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "wW": {
         "_description": "wall facing south.",
@@ -45,7 +50,8 @@
             "x": 9,
             "y": 2
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "wE": {
         "_description": "wall facing south.",
@@ -53,7 +59,8 @@
             "x": 8,
             "y": 2
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "s": {
         "_description": "snake body. RUNNN!",
@@ -61,7 +68,8 @@
             "x": 5,
             "y": 3
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "hN": {
         "_description": "snake head facing north. dont die!",
@@ -69,7 +77,8 @@
             "x": 1,
             "y": 3
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "hS": {
         "_description": "snake head facing south. dont die!",
@@ -77,7 +86,8 @@
             "x": 3,
             "y": 3
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "hW": {
         "_description": "snake head facing west. dont die!",
@@ -85,7 +95,8 @@
             "x": 2,
             "y": 3
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
     },
     "hE": {
         "_description": "snake head facing east. dont die!",
@@ -93,6 +104,16 @@
             "x": 4,
             "y": 3
         },
-        "canPassThrough": false
+        "drawingSizeRatio": 1,
+        "collisionRule": "solid"
+    },
+    "b": {
+        "_description": "biscuit MIAM MIAM",
+        "drawingReferenceCell": {
+            "x": 7,
+            "y": 3
+        },
+        "drawingSizeRatio": 0.8,
+        "collisionRule": "collectable"
     }
 }
