@@ -35,10 +35,10 @@ export class Snake {
 			// exit if snake body
 			if (this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0) return [undefined, false, biscuits];
 			// exit if solid block
-			if (cellTypesJson[nextCell.cellDatum.cellType].collisionRule === 'solid') return [undefined, false, biscuits];
+			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'solid') return [undefined, false, biscuits];
 			// execute collectible rulesets
-			if (cellTypesJson[nextCell.cellDatum.cellType].collisionRule === 'collectible') {
-				switch (nextCell.cellDatum.cellType) {
+			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'collectible') {
+				switch (nextCell.datum.cellType) {
 					case 'b':
 						// biscuits
 						biscuits++;
@@ -60,6 +60,24 @@ export class Snake {
 				this.gameSandbox.grid[nextY][nextX] = new Cell(nextX, nextY, { cellType: 'e' }, this.gameSandbox, false);
 			}
 
+			//* trigger rule
+			if (typeof nextCell.datum.trigger === 'object') {
+				const triggerDatum = nextCell.datum.trigger;
+
+				switch (triggerDatum.triggerRule) {
+					case 'replaceCell':
+						this.gameSandbox.grid[triggerDatum.y][triggerDatum.x] = new Cell(triggerDatum.x, triggerDatum.y, triggerDatum.datum, this.gameSandbox, false);
+						break;
+					case 'nextLevel':
+						console.warn('LEVEL ENDED!!');
+						break;
+
+					default:
+						console.warn('unknown triggerRule.');
+						break;
+				}
+			}
+
 			//* displace the head of the snake
 			this.snakeJson[0].head = false;
 			this.snakeJson.unshift({
@@ -67,11 +85,9 @@ export class Snake {
 				'y': nextY,
 				'head': true,
 			});
-
 			//* delete the tail of the snake
 			this.snakeJson.pop();
 
-			console.log(this.snakeJson);
 			return [panGesture, true, biscuits];
 		} else return [panGesture, false, biscuits];
 	}

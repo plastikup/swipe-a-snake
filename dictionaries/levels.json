@@ -5,15 +5,15 @@
             "height": 8
         },
         "datum": [
-            [{"cellType":"w"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"},{"cellType":"wS"}, {"cellType":"w"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"a"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"w"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"w"},{"cellType":"w"}, {"cellType":"w"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"a"}, {"cellType":"e"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"w"}],
             [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
             [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
             [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"A"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"b"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"b", "trigger": {"triggerRule": "replaceCell", "x": 3, "y": 2, "datum": {"cellType":"b", "trigger": {"triggerRule": "nextLevel"}}}}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
             [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"w"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
             [{"cellType":"w"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"w"}, {"cellType":"wN"},{"cellType":"wN"},{"cellType":"wN"}, {"cellType":"w"}]
         ],
-        "snake": [{ "x": 5, "y": 2, "head": true }, { "x": 4, "y": 2 }, { "x": 3, "y": 2 }, { "x": 2, "y": 2 }]
+        "snake": [{ "x": 5, "y": 3, "head": true }, { "x": 4, "y": 3 }, { "x": 3, "y": 3 }, { "x": 2, "y": 3 }]
     }
 }
