@@ -133,5 +133,41 @@
         },
         "drawingSizeRatio": 0.8,
         "collisionRule": "collectible"
+    },
+    "p1": {
+        "_description": "portal 1",
+        "drawingReferenceCell": {
+            "x": 7,
+            "y": 0
+        },
+        "drawingSizeRatio": 1,
+        "collisionRule": "portal"
+    },
+    "P1": {
+        "_description": "portal 1 (again)",
+        "drawingReferenceCell": {
+            "x": 8,
+            "y": 0
+        },
+        "drawingSizeRatio": 1,
+        "collisionRule": "portal"
+    },
+    "p2": {
+        "_description": "portal 2",
+        "drawingReferenceCell": {
+            "x": 7,
+            "y": 1
+        },
+        "drawingSizeRatio": 1,
+        "collisionRule": "portal"
+    },
+    "P2": {
+        "_description": "portal 2 (again)",
+        "drawingReferenceCell": {
+            "x": 8,
+            "y": 1
+        },
+        "drawingSizeRatio": 1,
+        "collisionRule": "portal"
     }
 }

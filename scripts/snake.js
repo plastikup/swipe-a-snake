@@ -26,16 +26,44 @@ export class Snake {
 		return [panGesture, panGestureLock, biscuits];
 	}
 
+	isSolidCollision = (cell, nextX, nextY) => this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0 || cellTypesJson[cell.datum.cellType].collisionRule === 'solid';
+
 	move(panGesture, biscuits) {
 		if (panGesture !== undefined) {
+			//* determine nextCell
+			const displaceX = panGesture === 0 || panGesture === 2 ? (panGesture === 0 ? 1 : -1) : 0;
+			const displaceY = panGesture === 1 || panGesture === 3 ? (panGesture === 3 ? 1 : -1) : 0;
+			let nextX = this.snakeJson[0].x + displaceX;
+			let nextY = this.snakeJson[0].y + displaceY;
+			let nextCell = this.gameSandbox.grid[nextY][nextX];
+			// if nextCell is a portal
+			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'portal') {
+				const portalTo = nextCell.datum.portalTo;
+				let targetCell;
+
+				for (const row of this.gameSandbox.grid) {
+					const found = row.filter((cell) => cell.datum.portalId === portalTo);
+					if (found.length !== 0) {
+						targetCell = found[0];
+						break;
+					}
+				}
+
+				nextX = targetCell.gx + displaceX;
+				nextY = targetCell.gy + displaceY;
+				nextCell = this.gameSandbox.grid[nextY][nextX];
+
+				// if after portal the cell is a block, snake may go onto the portal
+				if (this.isSolidCollision(nextCell, nextX, nextY)) {
+					nextX = this.snakeJson[0].x + displaceX;
+					nextY = this.snakeJson[0].y + displaceY;
+					nextCell = this.gameSandbox.grid[nextY][nextX];
+				}
+			}
+
 			//* collision rules
-			const nextX = this.snakeJson[0].x + (panGesture === 0 || panGesture === 2 ? (panGesture === 0 ? 1 : -1) : 0);
-			const nextY = this.snakeJson[0].y + (panGesture === 1 || panGesture === 3 ? (panGesture === 3 ? 1 : -1) : 0);
-			const nextCell = this.gameSandbox.grid[nextY][nextX];
-			// exit if snake body
-			if (this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0) return [undefined, false, biscuits];
-			// exit if solid block
-			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'solid') return [undefined, false, biscuits];
+			// exit if solid collision
+			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits];
 			// execute collectible rulesets
 			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'collectible') {
 				switch (nextCell.datum.cellType) {
