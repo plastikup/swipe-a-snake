@@ -38,8 +38,8 @@ gest.on('panend', function (event) {
 		default:
 			break;
 	}
+	
 	panGestureLock = true;
-	console.log(event);
 });
 
 /* GAME */

@@ -11,7 +11,7 @@
             [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
             [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
             [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"P1", "portalId": "b", "portalTo": "a"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"w"}, {"cellType":"w"}, {"cellType":"w"}],
+            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"P1", "portalId": "b", "portalTo": "a"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"w"}],
             [{"cellType":"w"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"wN"},{"cellType":"w"},{"cellType":"w"}, {"cellType":"w"}]
         ],
         "snake": [{ "x": 5, "y": 3, "head": true }, { "x": 4, "y": 3 }, { "x": 3, "y": 3 }, { "x": 2, "y": 3 }]
