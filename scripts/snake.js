@@ -30,9 +30,11 @@ export class Snake {
 
 	move(panGesture, biscuits) {
 		if (panGesture !== undefined) {
+			this.snakeDirection = panGesture;
+			
 			//* determine nextCell
-			const displaceX = panGesture === 0 || panGesture === 2 ? (panGesture === 0 ? 1 : -1) : 0;
-			const displaceY = panGesture === 1 || panGesture === 3 ? (panGesture === 3 ? 1 : -1) : 0;
+			const displaceX = panGesture === 'E' || panGesture === 'W' ? (panGesture === 'E' ? 1 : -1) : 0;
+			const displaceY = panGesture === 'N' || panGesture === 'S' ? (panGesture === 'S' ? 1 : -1) : 0;
 			let nextX = this.snakeJson[0].x + displaceX;
 			let nextY = this.snakeJson[0].y + displaceY;
 			let nextCell = this.gameSandbox.grid[nextY][nextX];

@@ -23,16 +23,16 @@ gest.on('panend', function (event) {
 
 	switch (event.additionalEvent) {
 		case 'panright':
-			panGesture = 0;
+			panGesture = 'E';
 			break;
 		case 'panup':
-			panGesture = 1;
+			panGesture = 'N';
 			break;
 		case 'panleft':
-			panGesture = 2;
+			panGesture = 'W';
 			break;
 		case 'pandown':
-			panGesture = 3;
+			panGesture = 'S';
 			break;
 
 		default:
