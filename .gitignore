@@ -2,3 +2,5 @@
 package.json
 package-lock.json
 eslint.config.mjs
+jsconfig.json
+node_modules
