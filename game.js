@@ -15,7 +15,7 @@ let biscuits = +localStorage.getItem('biscuits') || 0;
 
 /* GAME GESTURES */
 // eslint-disable-next-line no-undef
-const gest = new Hammer(canvas);
+const gest = new Hammer(document);
 let panGesture = undefined;
 let panGestureLock = false;
 gest.on('panend', function (event) {
