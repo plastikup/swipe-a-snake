@@ -1,6 +1,6 @@
-import { canvas, ctx, canvasSize } from './scripts/canvasConfig.js';
 import { Sandbox } from './scripts/sandbox.js';
 import { Snake } from './scripts/snake.js';
+import { Ui } from './scripts/ui.js';
 
 /* GLOB VARIABLES */
 let allLevelsJson;
@@ -11,6 +11,7 @@ export let cellTypesJson;
 let gameSandbox;
 let snake;
 
+let swipes = 0;
 let biscuits = +localStorage.getItem('biscuits') || 0;
 
 /* GAME GESTURES */
@@ -38,22 +39,32 @@ gest.on('panend', function (event) {
 		default:
 			break;
 	}
-	
+
 	panGestureLock = true;
 });
 
 /* GAME */
+export const GAME_STATES = {
+	intro: 'intro',
+	loading: 'loading',
+	levelSelect: 'levelSelect',
+	main: 'main',
+};
+let currentGameState = GAME_STATES.main;
 function loop() {
-	ctx.clearRect(0, 0, canvasSize, canvasSize);
+	Ui.loop(currentGameState, currentLevel, snake, swipes, biscuits);
 
 	//* loop the main cores of the game
+	let endOfMovement;
 	gameSandbox.loop();
-	[panGesture, panGestureLock, biscuits] = snake.loop(panGesture, panGestureLock, biscuits);
+	[panGesture, panGestureLock, biscuits, endOfMovement] = snake.loop(panGesture, panGestureLock, biscuits);
+	swipes += +endOfMovement;
 
 	//* for debug purposes only
 	window.selfVars = {
 		snake: snake,
 		biscuits: biscuits,
+		currentGameState: currentGameState,
 	};
 
 	requestAnimationFrame(loop);

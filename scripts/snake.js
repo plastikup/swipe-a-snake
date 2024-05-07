@@ -12,7 +12,8 @@ export class Snake {
 
 	loop(panGesture, panGestureLock, biscuits) {
 		//* move the snake if applies
-		[panGesture, panGestureLock, biscuits] = this.move(panGesture, biscuits);
+		let endOfMovement;
+		[panGesture, panGestureLock, biscuits, endOfMovement] = this.move(panGesture, biscuits);
 
 		//* draw the snake
 		for (const cell of this.snakeJson) {
@@ -23,7 +24,7 @@ export class Snake {
 			}
 		}
 
-		return [panGesture, panGestureLock, biscuits];
+		return [panGesture, panGestureLock, biscuits, endOfMovement];
 	}
 
 	isSolidCollision = (cell, nextX, nextY) => this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0 || cellTypesJson[cell.datum.cellType].collisionRule === 'solid';
@@ -65,7 +66,7 @@ export class Snake {
 
 			//* collision rules
 			// exit if solid collision
-			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits];
+			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits, true];
 			// execute collectible rulesets
 			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'collectible') {
 				switch (nextCell.datum.cellType) {
@@ -118,7 +119,7 @@ export class Snake {
 			//* delete the tail of the snake
 			this.snakeJson.pop();
 
-			return [panGesture, true, biscuits];
-		} else return [panGesture, false, biscuits];
+			return [panGesture, true, biscuits, false];
+		} else return [panGesture, false, biscuits, false];
 	}
 }

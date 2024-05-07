@@ -1,7 +1,7 @@
 import { canvasSize } from './canvasConfig.js';
 import { drawCell } from './drawCell.js';
 
-const MARGIN = 128;
+export const SANDBOX_MARGIN = 96;
 export class Sandbox {
 	constructor(width, height, levelJson) {
 		this.width = width;
@@ -60,6 +60,6 @@ export class Cell {
 }
 
 export function calculateDimensions(gx, gy, gameSandbox) {
-	const size = (canvasSize - MARGIN * 2) / Math.max(gameSandbox.width, gameSandbox.height);
+	const size = (canvasSize - SANDBOX_MARGIN * 2) / Math.max(gameSandbox.width, gameSandbox.height);
 	return [canvasSize / 2 + size * (gx - (gameSandbox.width - 1) / 2), canvasSize / 2 + size * (gy - (gameSandbox.height - 1) / 2), size];
 }
