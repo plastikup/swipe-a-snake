@@ -32,7 +32,7 @@ export class Snake {
 	move(panGesture, biscuits) {
 		if (panGesture !== undefined) {
 			this.snakeDirection = panGesture;
-			
+
 			//* determine nextCell
 			const displaceX = panGesture === 'E' || panGesture === 'W' ? (panGesture === 'E' ? 1 : -1) : 0;
 			const displaceY = panGesture === 'N' || panGesture === 'S' ? (panGesture === 'S' ? 1 : -1) : 0;
@@ -101,6 +101,7 @@ export class Snake {
 						break;
 					case 'nextLevel':
 						console.warn('LEVEL ENDED!!');
+						alert('level ended!'); //! temporary
 						break;
 
 					default:
@@ -112,9 +113,9 @@ export class Snake {
 			//* displace the head of the snake
 			this.snakeJson[0].head = false;
 			this.snakeJson.unshift({
-				'x': nextX,
-				'y': nextY,
-				'head': true,
+				x: nextX,
+				y: nextY,
+				head: true,
 			});
 			//* delete the tail of the snake
 			this.snakeJson.pop();
