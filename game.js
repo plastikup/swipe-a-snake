@@ -42,6 +42,7 @@ gest.on('panend', function (event) {
 		default:
 			break;
 	}
+
 	newPan = true;
 	panGestureLock = true;
 });
