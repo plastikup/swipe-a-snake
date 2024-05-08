@@ -52,7 +52,7 @@ export const GAME_STATES = {
 };
 let currentGameState = GAME_STATES.main;
 function loop() {
-	Ui.loop(currentGameState, currentLevel, snake, swipes, biscuits);
+	Ui.loop(currentGameState, currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired);
 
 	//* loop the main cores of the game
 	let endOfMovement;

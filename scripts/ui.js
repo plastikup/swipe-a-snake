@@ -4,7 +4,7 @@ import { SANDBOX_MARGIN } from './sandbox.js';
 import { drawCell } from './drawCell.js';
 
 export class Ui {
-	static loop(currentGameState, currentLevel, snake, swipes, biscuits) {
+	static loop(currentGameState, currentLevel, snake, swipes, biscuits, swipesRequired) {
 		switch (currentGameState) {
 			case GAME_STATES.intro:
 				ctx.clearRect(0, 0, canvasSize, canvasSize);
@@ -20,37 +20,45 @@ export class Ui {
 
 				//* level
 				ctx.font = '16px ' + gameFont;
+				ctx.fillStyle = '#BBB';
 				const levelMeasurement = measureText('level ' + currentLevel);
 				ctx.fillText('level ' + currentLevel, canvasSize / 2 - levelMeasurement.w / 2, SANDBOX_MARGIN / 2 + levelMeasurement.h + 8);
 
 				//* title
 				ctx.font = '30px ' + gameFont;
+				ctx.fillStyle = '#BFF';
 				const titleMeasurement = measureText('Swipe-a-Snake');
 				ctx.fillText('Swipe-a-Snake', canvasSize / 2 - titleMeasurement.w / 2, SANDBOX_MARGIN / 2 + 4);
 
 				//* biscuits
 				drawCell(canvasSize - 28, 28, 32, 'b', true);
-
 				ctx.font = '24px ' + gameFont;
+				ctx.fillStyle = '#FCA';
 				const biscuitMeasurement = measureText(biscuits);
-				ctx.fillText(biscuits, canvasSize - 44 - biscuitMeasurement.w, biscuitMeasurement.h / 2 + 28);
+				ctx.fillText(biscuits, canvasSize - 44 - biscuitMeasurement.w - 4, biscuitMeasurement.h / 2 + 28);
 
 				//* bottom stats
-				for (let i = 0; i < 2; i++) {
-					const description = ['swipes', 'growth'][i];
-					const datum = [swipes, snake.snakeJson.length][i];
-					const xPos = canvasSize / 2 + (i - 0.5) * canvasSize * 0.3;
-
-					// description
-					ctx.font = '16px ' + gameFont;
-					const descriptionMeasurement = measureText(description);
-					ctx.fillText(description, xPos - descriptionMeasurement.w / 2, canvasSize - SANDBOX_MARGIN / 2 - 4);
-
-					// datum
-					ctx.font = '16px ' + gameFont;
-					const datumMeasurement = measureText(datum);
-					ctx.fillText(datum, xPos - datumMeasurement.w / 2, canvasSize - SANDBOX_MARGIN / 2 + datumMeasurement.h + 4);
-				}
+				ctx.font = '16px ' + gameFont;
+				ctx.fillStyle = '#BFF';
+				// swipes
+				const swipesDescriptionMeasurement = measureText('swipes');
+				const swipesDatumMeasurement = measureText(swipes);
+				// growth
+				const growthDescriptionMeasurement = measureText('growth');
+				const growthDatumMeasurement = measureText(snake.snakeJson.length);
+				// swipes required
+				const solvableDescriptionMeasurement = measureText('solvable in');
+				const solvableDatumMeasurement = measureText(swipesRequired + ' moves');
+				// calcs
+				const evenSpacing = (canvasSize - (swipesDescriptionMeasurement.w + growthDescriptionMeasurement.w + solvableDescriptionMeasurement.w)) / 4;
+				// draw
+				ctx.fillText('swipes', evenSpacing, canvasSize - SANDBOX_MARGIN / 2 - 4);
+				ctx.fillText(swipes, evenSpacing + swipesDescriptionMeasurement.w / 2 - swipesDatumMeasurement.w / 2, canvasSize - SANDBOX_MARGIN / 2 + swipesDatumMeasurement.h + 4);
+				ctx.fillText('growth', swipesDescriptionMeasurement.w + 2 * evenSpacing, canvasSize - SANDBOX_MARGIN / 2 - 4);
+				ctx.fillText(snake.snakeJson.length, swipesDescriptionMeasurement.w + 2 * evenSpacing + growthDescriptionMeasurement.w / 2 - growthDatumMeasurement.w / 2, canvasSize - SANDBOX_MARGIN / 2 + growthDatumMeasurement.h + 4);
+				ctx.fillStyle = '#BBB';
+				ctx.fillText('solvable in', swipesDescriptionMeasurement.w + growthDescriptionMeasurement.w + 3 * evenSpacing, canvasSize - SANDBOX_MARGIN / 2 - 4);
+				ctx.fillText(swipesRequired + ' moves', swipesDescriptionMeasurement.w + growthDescriptionMeasurement.w + 3 * evenSpacing + solvableDescriptionMeasurement.w / 2 - solvableDatumMeasurement.w / 2, canvasSize - SANDBOX_MARGIN / 2 + solvableDatumMeasurement.h + 4);
 				break;
 			}
 
