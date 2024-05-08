@@ -107,7 +107,7 @@ function loop() {
 }
 
 async function init() {
-	await fetch('/dictionaries/levels.json')
+	await fetch('./dictionaries/levels.json')
 		.then((res) => res.json())
 		.then((levelsFetched) => {
 			//levels = Object.values(levelsFetched);
@@ -117,7 +117,7 @@ async function init() {
 		.catch((error) => {
 			console.error('Error loading levels JSON:', error);
 		});
-	await fetch('/dictionaries/cellTypes.json')
+	await fetch('./dictionaries/cellTypes.json')
 		.then((res) => res.json())
 		.then((levelsFetched) => {
 			cellTypesJson = levelsFetched;
@@ -126,7 +126,7 @@ async function init() {
 		.catch((error) => {
 			console.error('Error loading levels JSON:', error);
 		});
-	await fetch('/dictionaries/theme.json')
+	await fetch('./dictionaries/theme.json')
 		.then((res) => res.json())
 		.then((themeFetched) => {
 			themeJson = themeFetched;
