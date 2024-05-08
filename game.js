@@ -14,6 +14,8 @@ let snake;
 let swipes = 0;
 let biscuits = +localStorage.getItem('biscuits') || 0;
 
+export let themeJson;
+
 /* GAME GESTURES */
 // eslint-disable-next-line no-undef
 const gest = new Hammer(document);
@@ -86,6 +88,15 @@ async function init() {
 		.then((levelsFetched) => {
 			cellTypesJson = levelsFetched;
 			console.log(cellTypesJson);
+		})
+		.catch((error) => {
+			console.error('Error loading levels JSON:', error);
+		});
+	await fetch('/dictionaries/theme.json')
+		.then((res) => res.json())
+		.then((themeFetched) => {
+			themeJson = themeFetched;
+			console.log(themeJson);
 		})
 		.catch((error) => {
 			console.error('Error loading levels JSON:', error);
