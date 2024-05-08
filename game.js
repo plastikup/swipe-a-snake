@@ -23,19 +23,19 @@ let panGesture = undefined;
 let panGestureLock = false;
 gest.on('panend', function (event) {
 	if (event.additionalEvent === undefined || panGestureLock) return;
-
 	switch (event.additionalEvent) {
-		case 'panright':
-			panGesture = 'E';
-			break;
 		case 'panup':
 			panGesture = 'N';
+			break;
+		case 'pandown':
+			panGesture = 'S';
 			break;
 		case 'panleft':
 			panGesture = 'W';
 			break;
-		case 'pandown':
-			panGesture = 'S';
+
+		case 'panright':
+			panGesture = 'E';
 			break;
 
 		default:
@@ -43,6 +43,34 @@ gest.on('panend', function (event) {
 	}
 
 	panGestureLock = true;
+});
+document.addEventListener('keyup', function (event) {
+	if (panGestureLock) return;
+	switch (event.code) {
+		case 'ArrowUp':
+		case 'KeyW':
+			panGesture = 'N';
+			panGestureLock = true;
+			break;
+		case 'ArrowDown':
+		case 'KeyS':
+			panGesture = 'S';
+			panGestureLock = true;
+			break;
+		case 'ArrowLeft':
+		case 'KeyA':
+			panGesture = 'W';
+			panGestureLock = true;
+			break;
+		case 'ArrowRight':
+		case 'KeyD':
+			panGesture = 'E';
+			panGestureLock = true;
+			break;
+
+		default:
+			break;
+	}
 });
 
 /* GAME */
