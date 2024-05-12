@@ -4,19 +4,38 @@ import { SANDBOX_MARGIN } from './sandbox.js';
 import { drawCell } from './drawCell.js';
 
 export class Ui {
+	static gui;
+
 	static loop(currentGameState, currentLevel, snake, swipes, biscuits, swipesRequired) {
 		switch (currentGameState) {
-			case GAME_STATES.intro:
-				ctx.clearRect(0, 0, canvasSize, canvasSize);
+			case GAME_STATES.intro: {
+				ctx.fillStyle = '#000';
+				ctx.fillRect(0, 0, canvasSize, canvasSize);
+				
+				//* title
+				ctx.font = '30px ' + gameFont;
+				ctx.fillStyle = themeJson.primary;
+				const titleMeasurement = measureText('Swipe-a-Snake');
+				ctx.fillText('Swipe-a-Snake', canvasSize / 2 - titleMeasurement.w / 2, SANDBOX_MARGIN / 2 + 4);
+
 				break;
-			case GAME_STATES.loading:
-				ctx.clearRect(0, 0, canvasSize, canvasSize);
+			}
+
+			case GAME_STATES.loading: {
+				ctx.fillStyle = '#000';
+				ctx.fillRect(0, 0, canvasSize, canvasSize);
 				break;
-			case GAME_STATES.levelSelect:
-				ctx.clearRect(0, 0, canvasSize, canvasSize);
+			}
+
+			case GAME_STATES.levelSelect: {
+				ctx.fillStyle = '#000';
+				ctx.fillRect(0, 0, canvasSize, canvasSize);
 				break;
+			}
+
 			case GAME_STATES.main: {
-				ctx.clearRect(0, 0, canvasSize, canvasSize);
+				ctx.fillStyle = '#000';
+				ctx.fillRect(0, 0, canvasSize, canvasSize);
 
 				//* level
 				ctx.font = '16px ' + gameFont;

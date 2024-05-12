@@ -86,16 +86,34 @@ export const GAME_STATES = {
 	levelSelect: 'levelSelect',
 	main: 'main',
 };
-let currentGameState = GAME_STATES.main;
+let currentGameState = GAME_STATES.intro;
 function loop() {
 	Ui.loop(currentGameState, currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired);
 
-	//* loop the main cores of the game
-	let endOfMovement;
-	gameSandbox.loop();
-	[panGesture, panGestureLock, biscuits, endOfMovement] = snake.loop(panGesture, panGestureLock, biscuits);
-	if (newPan) newPan = false;
-	else swipes += +endOfMovement;
+	switch (currentGameState) {
+		case GAME_STATES.intro: {
+			break;
+		}
+
+		case GAME_STATES.loading:
+			break;
+
+		case GAME_STATES.levelSelect:
+			break;
+
+		case GAME_STATES.main: {
+			//* loop the main cores of the game
+			let endOfMovement;
+			gameSandbox.loop();
+			[panGesture, panGestureLock, biscuits, endOfMovement] = snake.loop(panGesture, panGestureLock, biscuits);
+			if (newPan) newPan = false;
+			else swipes += +endOfMovement;
+			break;
+		}
+
+		default:
+			break;
+	}
 
 	//* for debug purposes only
 	window.selfVars = {

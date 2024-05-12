@@ -2,7 +2,7 @@ import { ctx } from './canvasConfig.js';
 import { cellTypesJson } from '../game.js';
 
 const tilemap = new Image();
-tilemap.src = './tilemap.png';
+tilemap.src = './assets/tilemap.png';
 export function drawCell(x, y, size, cellType, overwriteAnimation = false) {
 	const cellDictionary = cellTypesJson[cellType];
 	size *= cellDictionary.drawingSizeRatio + +!overwriteAnimation * (cellDictionary.collisionRule === 'collectible' ? (Math.sin(Date.now() / 400) - 1) * 0.1 : 0);
