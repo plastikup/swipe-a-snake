@@ -1,3 +1,4 @@
+'use strict';
 console.clear();
 
 import { Sandbox } from './scripts/sandbox.js';
@@ -84,6 +85,7 @@ document.addEventListener('keyup', function (event) {
 
 /* CURSOR */
 const mouse = {
+	click: false,
 	x: canvasSize / 2,
 	y: canvasSize / 2,
 };
@@ -92,6 +94,9 @@ mouseImg.src = './assets/fancyCursor.png';
 canvas.addEventListener('mousemove', function (event) {
 	mouse.x = event.offsetX;
 	mouse.y = event.offsetY;
+});
+document.addEventListener('click', function () {
+	mouse.click = true;
 });
 
 /* GAME */
@@ -103,7 +108,37 @@ export const GAME_STATES = {
 };
 let currentGameState = GAME_STATES.intro;
 function loop() {
-	Ui.loop(currentGameState, currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired);
+	switch (currentGameState) {
+		case GAME_STATES.intro: {
+			ctx.fillStyle = '#000';
+			ctx.fillRect(0, 0, canvasSize, canvasSize);
+			currentGameState =  Ui.intro(mouse);
+			break;
+		}
+
+		case GAME_STATES.loading: {
+			ctx.fillStyle = '#000';
+			ctx.fillRect(0, 0, canvasSize, canvasSize);
+			break;
+		}
+
+		case GAME_STATES.levelSelect: {
+			ctx.fillStyle = '#000';
+			ctx.fillRect(0, 0, canvasSize, canvasSize);
+			break;
+		}
+
+		case GAME_STATES.main: {
+			ctx.fillStyle = '#000';
+			ctx.fillRect(0, 0, canvasSize, canvasSize);
+			Ui.main(currentGameState, currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired);
+			break;
+		}
+
+		default:
+			break;
+	}
+	mouse.click = false;
 
 	switch (currentGameState) {
 		case GAME_STATES.intro: {
