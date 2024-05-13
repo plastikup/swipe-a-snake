@@ -8,7 +8,7 @@ canvas.height = canvasSize * canvasScaleFactor;
 canvas.style.width = canvasSize + 'px';
 canvas.style.height = canvasSize + 'px';
 
-export const gameFont = "'Press Start 2P'";
+export const gameFont = "px 'Press Start 2P'";
 ctx.font = '16px ' + gameFont;
 ctx.fillStyle = '#FFF';
 ctx.scale(canvasScaleFactor, canvasScaleFactor);

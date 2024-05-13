@@ -1,5 +1,5 @@
 import { GAME_STATES, themeJson } from '../game.js';
-import { ctx, canvasSize, gameFont, canvas } from './canvasConfig.js';
+import { ctx, canvasSize, gameFont } from './canvasConfig.js';
 import { SANDBOX_MARGIN } from './sandbox.js';
 import { drawCell } from './drawCell.js';
 
@@ -15,7 +15,7 @@ export class Ui {
 				const yShift = canvasSize / 12;
 
 				//* title
-				ctx.font = '64px ' + gameFont;
+				ctx.font = canvasSize / 12.8 + gameFont;
 				ctx.fillStyle = themeJson.secondary;
 				const title1Msmnt = measureText('-a-');
 				ctx.fillText('-a-', canvasSize / 2 - title1Msmnt.w / 2, canvasSize / 4 + title1Msmnt.h / 2 + yShift);
@@ -51,26 +51,26 @@ export class Ui {
 				ctx.fillRect(0, 0, canvasSize, canvasSize);
 
 				//* level
-				ctx.font = '16px ' + gameFont;
+				ctx.font = canvasSize * 0.024 + gameFont;
 				ctx.fillStyle = themeJson.secondary;
 				const levelMsmnt = measureText('level ' + currentLevel);
 				ctx.fillText('level ' + currentLevel, canvasSize / 2 - levelMsmnt.w / 2, SANDBOX_MARGIN / 2 + levelMsmnt.h + 8);
 
 				//* title
-				ctx.font = '30px ' + gameFont;
+				ctx.font = canvasSize * 0.040 + gameFont;
 				ctx.fillStyle = themeJson.primary;
 				const titleMsmnt = measureText('Swipe-a-Snake');
 				ctx.fillText('Swipe-a-Snake', canvasSize / 2 - titleMsmnt.w / 2, SANDBOX_MARGIN / 2 + 4);
 
 				//* biscuits
 				drawCell(canvasSize - 28, 28, 32, 'b', true);
-				ctx.font = '24px ' + gameFont;
+				ctx.font = canvasSize * 0.024 + gameFont;
 				ctx.fillStyle = themeJson.cookie;
 				const biscuitMsmnt = measureText(biscuits);
 				ctx.fillText(biscuits, canvasSize - 44 - biscuitMsmnt.w - 4, biscuitMsmnt.h / 2 + 28);
 
 				//* bottom stats
-				ctx.font = '16px ' + gameFont;
+				ctx.font = canvasSize * 0.024 + gameFont;
 				ctx.fillStyle = themeJson.primary;
 				// swipes
 				const swipesDescriptionMsmnt = measureText('swipes');
