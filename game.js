@@ -1,6 +1,9 @@
+console.clear();
+
 import { Sandbox } from './scripts/sandbox.js';
 import { Snake } from './scripts/snake.js';
 import { Ui } from './scripts/ui.js';
+import { canvas, canvasSize, ctx } from './scripts/canvasConfig.js';
 
 /* GLOB VARIABLES */
 let allLevelsJson;
@@ -79,6 +82,18 @@ document.addEventListener('keyup', function (event) {
 	}
 });
 
+/* CURSOR */
+const mouse = {
+	x: canvasSize / 2,
+	y: canvasSize / 2,
+};
+const mouseImg = new Image();
+mouseImg.src = './assets/fancyCursor.png';
+canvas.addEventListener('mousemove', function (event) {
+	mouse.x = event.offsetX;
+	mouse.y = event.offsetY;
+});
+
 /* GAME */
 export const GAME_STATES = {
 	intro: 'intro',
@@ -114,6 +129,9 @@ function loop() {
 		default:
 			break;
 	}
+
+	//* draw the mouse
+	ctx.drawImage(mouseImg, mouse.x, mouse.y, (canvasSize * 158) / 4800, (canvasSize * 254) / 4800);
 
 	//* for debug purposes only
 	window.selfVars = {
