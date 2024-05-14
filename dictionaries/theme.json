@@ -1,7 +1,7 @@
 {
-    "primary": "#BFF",
-    "secondary": "#BBB",
-    "tertiary": "#FBB",
-    "gray": "#666",
-    "cookie": "#FCA"
+	"primary": "#BFF",
+	"secondary": "#BBB",
+	"tertiary": "#FBB",
+	"gray": "#444",
+	"cookie": "#FCA"
 }

@@ -94,14 +94,22 @@ export class Ui {
 					dummyPosition.cx = dummyPosition.tlx + levelDummyDimensions.w / 2;
 					dummyPosition.cy = dummyPosition.tly + levelDummyDimensions.h / 2;
 
+					//* dummy
+					ctx.save();
+					ctx.globalAlpha = 0.75;
 					ctx.drawImage(Ui.gui.levelDummy, dummyPosition.tlx, dummyPosition.tly - levelDummyDimensions.h * 0.1, levelDummyDimensions.w, levelDummyDimensions.h);
+					ctx.restore();
 
 					{
+						//* level id
 						ctx.font = canvasSize * 0.08 + gameFont;
-						ctx.fillStyle = themeJson.primary;
-						const msmnt = measureText(i * 4 + j);
-						ctx.fillText(i * 4 + j, dummyPosition.cx - msmnt.w / 2, dummyPosition.cy + msmnt.h / 2);
+						ctx.fillStyle = themeJson.gray;
+						const msmnt = measureText(i * 4 + j + 1);
+						ctx.fillText(i * 4 + j + 1, dummyPosition.cx - msmnt.w / 2, dummyPosition.cy + msmnt.h / 2 - levelDummyDimensions.h * 0.075);
 					}
+
+					//* stars
+					ctx.drawImage(Ui.gui['star' + levelProgress[i * 4 + j]], dummyPosition.cx - levelDummyDimensions.w * 0.3, dummyPosition.cy + levelDummyDimensions.h * 0.05, levelDummyDimensions.w * 0.6, (levelDummyDimensions.w * 0.6 * 32) / 77);
 				}
 			}
 		}
