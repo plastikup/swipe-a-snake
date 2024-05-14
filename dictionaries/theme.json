@@ -2,5 +2,6 @@
     "primary": "#BFF",
     "secondary": "#BBB",
     "tertiary": "#FBB",
+    "gray": "#666",
     "cookie": "#FCA"
 }

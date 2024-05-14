@@ -1,7 +1,7 @@
 import { canvasSize } from './canvasConfig.js';
 import { drawCell } from './drawCell.js';
 
-export const SANDBOX_MARGIN = 96;
+export const SANDBOX_MARGIN = canvasSize / 6.75;
 export class Sandbox {
 	constructor(width, height, levelJson) {
 		this.width = width;

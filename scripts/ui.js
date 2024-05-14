@@ -1,5 +1,5 @@
 import { GAME_STATES, themeJson } from '../game.js';
-import { ctx, canvasSize, gameFont } from './canvasConfig.js';
+import { ctx, canvasSize, gameFont, canvas } from './canvasConfig.js';
 import { SANDBOX_MARGIN } from './sandbox.js';
 import { drawCell } from './drawCell.js';
 
@@ -7,7 +7,7 @@ export class Ui {
 	static gui = {};
 
 	static intro(mouse) {
-		let newGameState = GAME_STATES.intro
+		let newGameState = GAME_STATES.intro;
 		const yShift = canvasSize / 12;
 
 		//* title
@@ -56,25 +56,82 @@ export class Ui {
 		return newGameState;
 	}
 
+	static levelSelect(levelProgress) {
+		let newGameState = GAME_STATES.levelSelect;
+		{
+			//* title
+			ctx.font = canvasSize * 0.04 + gameFont;
+			ctx.fillStyle = themeJson.primary;
+			const msmnt = measureText('Level Select');
+			ctx.fillText('Level Select', canvasSize / 2 - msmnt.w / 2, SANDBOX_MARGIN / 2 + 4);
+		}
+		{
+			//* note 1
+			ctx.font = canvasSize * 0.018 + gameFont;
+			ctx.fillStyle = themeJson.gray;
+			const msmnt = measureText('all levels are unlocked by default');
+			ctx.fillText('all levels are unlocked by default', canvasSize / 2 - msmnt.w / 2, canvasSize - SANDBOX_MARGIN / 2);
+		}
+
+		//* note 2
+		ctx.font = canvasSize * 0.018 + gameFont;
+		ctx.fillStyle = themeJson.gray;
+		const noteMsmnt = measureText('your goal is to collect the most stars possible');
+		ctx.fillText('your goal is to collect the most stars possible', canvasSize / 2 - noteMsmnt.w / 2, canvasSize - SANDBOX_MARGIN / 2 + noteMsmnt.h + 4);
+
+		{
+			//* levels board
+			const levelDummyDimensions = {
+				w: ((canvasSize / 3) * Ui.gui.levelDummy.width) / Ui.gui.levelDummy.height,
+				h: canvasSize / 3,
+			};
+			for (let i = 0; i < 3; i++) {
+				for (let j = 0; j < 4; j++) {
+					const dummyPosition = {
+						tlx: canvasSize / 2 - levelDummyDimensions.w / 2 + ((j - 1.5) * (canvasSize - SANDBOX_MARGIN * 2)) / 3.25,
+						tly: (SANDBOX_MARGIN / 2 + 4 + (canvasSize - SANDBOX_MARGIN / 2 - noteMsmnt.h)) / 2 - levelDummyDimensions.h / 2 + ((i - 1) * (canvasSize - SANDBOX_MARGIN * 2)) / 2.75,
+					};
+					dummyPosition.cx = dummyPosition.tlx + levelDummyDimensions.w / 2;
+					dummyPosition.cy = dummyPosition.tly + levelDummyDimensions.h / 2;
+
+					ctx.drawImage(Ui.gui.levelDummy, dummyPosition.tlx, dummyPosition.tly - levelDummyDimensions.h * 0.1, levelDummyDimensions.w, levelDummyDimensions.h);
+
+					{
+						ctx.font = canvasSize * 0.08 + gameFont;
+						ctx.fillStyle = themeJson.primary;
+						const msmnt = measureText(i * 4 + j);
+						ctx.fillText(i * 4 + j, dummyPosition.cx - msmnt.w / 2, dummyPosition.cy + msmnt.h / 2);
+					}
+				}
+			}
+		}
+
+		return newGameState;
+	}
+
 	static main(currentGameState, currentLevel, snake, swipes, biscuits, swipesRequired) {
-		//* level
-		ctx.font = canvasSize * 0.024 + gameFont;
-		ctx.fillStyle = themeJson.secondary;
-		const levelMsmnt = measureText('level ' + currentLevel);
-		ctx.fillText('level ' + currentLevel, canvasSize / 2 - levelMsmnt.w / 2, SANDBOX_MARGIN / 2 + levelMsmnt.h + 8);
-
-		//* title
-		ctx.font = canvasSize * 0.04 + gameFont;
-		ctx.fillStyle = themeJson.primary;
-		const titleMsmnt = measureText('Swipe-a-Snake');
-		ctx.fillText('Swipe-a-Snake', canvasSize / 2 - titleMsmnt.w / 2, SANDBOX_MARGIN / 2 + 4);
-
-		//* biscuits
-		drawCell(canvasSize - 28, 28, 32, 'b', true);
-		ctx.font = canvasSize * 0.024 + gameFont;
-		ctx.fillStyle = themeJson.cookie;
-		const biscuitMsmnt = measureText(biscuits);
-		ctx.fillText(biscuits, canvasSize - 44 - biscuitMsmnt.w - 4, biscuitMsmnt.h / 2 + 28);
+		{
+			//* level
+			ctx.font = canvasSize * 0.024 + gameFont;
+			ctx.fillStyle = themeJson.secondary;
+			const msmnt = measureText('level ' + currentLevel);
+			ctx.fillText('level ' + currentLevel, canvasSize / 2 - msmnt.w / 2, SANDBOX_MARGIN / 2 + msmnt.h + 8);
+		}
+		{
+			//* title
+			ctx.font = canvasSize * 0.04 + gameFont;
+			ctx.fillStyle = themeJson.primary;
+			const msmnt = measureText('Swipe-a-Snake');
+			ctx.fillText('Swipe-a-Snake', canvasSize / 2 - msmnt.w / 2, SANDBOX_MARGIN / 2 + 4);
+		}
+		{
+			//* biscuits
+			drawCell(canvasSize - 28, 28, 32, 'b', true);
+			ctx.font = canvasSize * 0.024 + gameFont;
+			ctx.fillStyle = themeJson.cookie;
+			const msmnt = measureText(biscuits);
+			ctx.fillText(biscuits, canvasSize - 44 - msmnt.w - 4, msmnt.h / 2 + 28);
+		}
 
 		//* bottom stats
 		ctx.font = canvasSize * 0.024 + gameFont;
@@ -112,6 +169,17 @@ Ui.gui.soundOff = new Image();
 Ui.gui.soundOff.src = '../assets/GUI/Buttons/Square/SoundOff/Default.png';
 Ui.gui.soundOffHover = new Image();
 Ui.gui.soundOffHover.src = '../assets/GUI/Buttons/Square/SoundOff/Hover.png';
+
+Ui.gui.levelDummy = new Image();
+Ui.gui.levelDummy.src = '../assets/GUI/Level/Button/Dummy.png';
+Ui.gui.star0 = new Image();
+Ui.gui.star0.src = '../assets/GUI/Level/Star/Group/0-3.png';
+Ui.gui.star1 = new Image();
+Ui.gui.star1.src = '../assets/GUI/Level/Star/Group/1-3.png';
+Ui.gui.star2 = new Image();
+Ui.gui.star2.src = '../assets/GUI/Level/Star/Group/2-3.png';
+Ui.gui.star3 = new Image();
+Ui.gui.star3.src = '../assets/GUI/Level/Star/Group/3-3.png';
 
 const measureText = (text) => {
 	const metrics = ctx.measureText(text);

@@ -6,6 +6,15 @@ import { Snake } from './scripts/snake.js';
 import { Ui } from './scripts/ui.js';
 import { canvas, canvasSize, ctx } from './scripts/canvasConfig.js';
 
+/* LEVEL PROGRESS */
+// eslint-disable-next-line no-constant-condition
+if (localStorage.getItem('levelProgress') === null || true) { //! remove constant condition in the future
+	console.info('first time playing; setting brand new level progress JSON data');
+	localStorage.setItem('levelProgress', JSON.stringify([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+}
+const levelProgress = JSON.parse(localStorage.getItem('levelProgress'));
+console.log(levelProgress);
+
 /* GLOB VARIABLES */
 let allLevelsJson;
 let currentLevel = 1;
@@ -102,29 +111,23 @@ document.addEventListener('click', function () {
 /* GAME */
 export const GAME_STATES = {
 	intro: 'intro',
-	loading: 'loading',
 	levelSelect: 'levelSelect',
 	main: 'main',
 };
-let currentGameState = GAME_STATES.intro;
+let currentGameState = GAME_STATES.levelSelect;
 function loop() {
 	switch (currentGameState) {
 		case GAME_STATES.intro: {
 			ctx.fillStyle = '#000';
 			ctx.fillRect(0, 0, canvasSize, canvasSize);
-			currentGameState =  Ui.intro(mouse);
-			break;
-		}
-
-		case GAME_STATES.loading: {
-			ctx.fillStyle = '#000';
-			ctx.fillRect(0, 0, canvasSize, canvasSize);
+			currentGameState = Ui.intro(mouse);
 			break;
 		}
 
 		case GAME_STATES.levelSelect: {
 			ctx.fillStyle = '#000';
 			ctx.fillRect(0, 0, canvasSize, canvasSize);
+			Ui.levelSelect(levelProgress);
 			break;
 		}
 
