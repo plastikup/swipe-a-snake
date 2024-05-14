@@ -56,8 +56,10 @@ export class Ui {
 		return newGameState;
 	}
 
-	static levelSelect(levelProgress) {
+	static levelSelect(levelProgress, mouse) {
 		let newGameState = GAME_STATES.levelSelect;
+		let newLevel;
+
 		{
 			//* title
 			ctx.font = canvasSize * 0.04 + gameFont;
@@ -95,10 +97,16 @@ export class Ui {
 					dummyPosition.cy = dummyPosition.tly + levelDummyDimensions.h / 2;
 
 					//* dummy
+					const hoverState = isInsideBox(dummyPosition.cx - (levelDummyDimensions.w * 0.6) / 2, dummyPosition.cy - (levelDummyDimensions.h * 0.6) / 2, levelDummyDimensions.w * 0.6, levelDummyDimensions.h * 0.6, mouse.x, mouse.y);
 					ctx.save();
-					ctx.globalAlpha = 0.75;
+					ctx.globalAlpha = hoverState ? 1 : 0.75;
 					ctx.drawImage(Ui.gui.levelDummy, dummyPosition.tlx, dummyPosition.tly - levelDummyDimensions.h * 0.1, levelDummyDimensions.w, levelDummyDimensions.h);
 					ctx.restore();
+					// if click on this dummy
+					if (mouse.click && hoverState) {
+						newGameState = GAME_STATES.main;
+						newLevel = i * 4 + j + 1;
+					}
 
 					{
 						//* level id
@@ -114,7 +122,7 @@ export class Ui {
 			}
 		}
 
-		return newGameState;
+		return [newGameState, newLevel];
 	}
 
 	static main(currentGameState, currentLevel, snake, swipes, biscuits, swipesRequired) {

@@ -8,7 +8,8 @@ import { canvas, canvasSize, ctx } from './scripts/canvasConfig.js';
 
 /* LEVEL PROGRESS */
 // eslint-disable-next-line no-constant-condition
-if (localStorage.getItem('levelProgress') === null || true) { //! remove constant condition in the future
+if (localStorage.getItem('levelProgress') === null || true) {
+	//! remove constant condition in the future
 	console.info('first time playing; setting brand new level progress JSON data');
 	localStorage.setItem('levelProgress', JSON.stringify([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
 }
@@ -114,20 +115,33 @@ export const GAME_STATES = {
 	levelSelect: 'levelSelect',
 	main: 'main',
 };
-let currentGameState = GAME_STATES.levelSelect;
+let currentGameState = GAME_STATES.intro;
 function loop() {
 	switch (currentGameState) {
 		case GAME_STATES.intro: {
 			ctx.fillStyle = '#000';
 			ctx.fillRect(0, 0, canvasSize, canvasSize);
+
 			currentGameState = Ui.intro(mouse);
+
+			if (currentGameState === GAME_STATES.main) {
+				newLevel(currentLevel);
+			}
+
 			break;
 		}
 
 		case GAME_STATES.levelSelect: {
 			ctx.fillStyle = '#000';
 			ctx.fillRect(0, 0, canvasSize, canvasSize);
-			Ui.levelSelect(levelProgress);
+
+			let level;
+			[currentGameState, level] = Ui.levelSelect(levelProgress, mouse);
+
+			if (currentGameState === GAME_STATES.main) {
+				newLevel(level);
+			}
+
 			break;
 		}
 
@@ -185,7 +199,6 @@ async function init() {
 	await fetch('./dictionaries/levels.json')
 		.then((res) => res.json())
 		.then((levelsFetched) => {
-			//levels = Object.values(levelsFetched);
 			allLevelsJson = levelsFetched;
 			console.log(allLevelsJson);
 		})
@@ -211,8 +224,12 @@ async function init() {
 			console.error('Error loading levels JSON:', error);
 		});
 
-	gameSandbox = new Sandbox(getCurrentLevelJson().params.width, getCurrentLevelJson().params.height, getCurrentLevelJson().datum);
-	snake = new Snake(getCurrentLevelJson().snake, gameSandbox);
 	loop();
 }
 init();
+
+function newLevel(level) {
+	currentLevel = level;
+	gameSandbox = new Sandbox(getCurrentLevelJson().params.width, getCurrentLevelJson().params.height, getCurrentLevelJson().datum);
+	snake = new Snake(getCurrentLevelJson().snake, gameSandbox);
+}
