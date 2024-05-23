@@ -114,9 +114,11 @@ export const GAME_STATES = {
 	intro: 'intro',
 	levelSelect: 'levelSelect',
 	main: 'main',
+	levelEnded: 'levelEnded',
 };
 let currentGameState = GAME_STATES.intro;
 function loop() {
+	//* UI
 	switch (currentGameState) {
 		case GAME_STATES.intro: {
 			ctx.fillStyle = '#000';
@@ -145,10 +147,11 @@ function loop() {
 			break;
 		}
 
+		case GAME_STATES.levelEnded:
 		case GAME_STATES.main: {
 			ctx.fillStyle = '#000';
 			ctx.fillRect(0, 0, canvasSize, canvasSize);
-			Ui.main(currentGameState, currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired);
+			Ui.main(currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired);
 			break;
 		}
 
@@ -157,6 +160,7 @@ function loop() {
 	}
 	mouse.click = false;
 
+	//* core
 	switch (currentGameState) {
 		case GAME_STATES.intro: {
 			break;
@@ -168,19 +172,30 @@ function loop() {
 		case GAME_STATES.levelSelect:
 			break;
 
-		case GAME_STATES.main: {
+		case GAME_STATES.main:
+		case GAME_STATES.levelEnded: {
 			//* loop the main cores of the game
-			let endOfMovement;
+			let endOfMovement = false;
+
 			gameSandbox.loop();
-			[panGesture, panGestureLock, biscuits, endOfMovement] = snake.loop(panGesture, panGestureLock, biscuits);
+
+			if (currentGameState === GAME_STATES.main) {
+				[panGesture, panGestureLock, biscuits, endOfMovement, currentGameState] = snake.move(panGesture, biscuits, currentGameState);
+			}
+			snake.draw();
+
 			if (newPan) newPan = false;
 			else swipes += +endOfMovement;
+
 			break;
 		}
 
 		default:
 			break;
 	}
+
+	//* apply level ended mask
+	if (currentGameState === GAME_STATES.levelEnded) Ui.levelEnded();
 
 	//* draw the mouse
 	ctx.drawImage(mouseImg, mouse.x, mouse.y, (canvasSize * 158) / 4800, (canvasSize * 254) / 4800);

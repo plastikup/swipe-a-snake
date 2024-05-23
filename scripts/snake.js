@@ -1,6 +1,6 @@
 import { drawCell } from './drawCell.js';
 import { calculateDimensions } from './sandbox.js';
-import { cellTypesJson } from '../game.js';
+import { GAME_STATES, cellTypesJson } from '../game.js';
 import { Cell } from '../scripts/sandbox.js';
 
 export class Snake {
@@ -10,12 +10,7 @@ export class Snake {
 		this.snakeDirection = 'E';
 	}
 
-	loop(panGesture, panGestureLock, biscuits) {
-		//* move the snake if applies
-		let endOfMovement;
-		[panGesture, panGestureLock, biscuits, endOfMovement] = this.move(panGesture, biscuits);
-
-		//* draw the snake
+	draw() {
 		for (const cell of this.snakeJson) {
 			if (cell.head) {
 				drawCell(...calculateDimensions(cell.x, cell.y, this.gameSandbox), 'h' + this.snakeDirection);
@@ -23,13 +18,11 @@ export class Snake {
 				drawCell(...calculateDimensions(cell.x, cell.y, this.gameSandbox), 's');
 			}
 		}
-
-		return [panGesture, panGestureLock, biscuits, endOfMovement];
 	}
 
 	isSolidCollision = (cell, nextX, nextY) => this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0 || cellTypesJson[cell.datum.cellType].collisionRule === 'solid';
 
-	move(panGesture, biscuits) {
+	move(panGesture, biscuits, currentGameState) {
 		if (panGesture !== undefined) {
 			this.snakeDirection = panGesture;
 
@@ -66,7 +59,7 @@ export class Snake {
 
 			//* collision rules
 			// exit if solid collision
-			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits, true];
+			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits, true, currentGameState];
 			// execute collectible rulesets
 			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'collectible') {
 				switch (nextCell.datum.cellType) {
@@ -101,7 +94,7 @@ export class Snake {
 						break;
 					case 'nextLevel':
 						console.warn('LEVEL ENDED!!');
-						alert('level ended!'); //! temporary
+						currentGameState = GAME_STATES.levelEnded;
 						break;
 
 					default:
@@ -120,7 +113,7 @@ export class Snake {
 			//* delete the tail of the snake
 			this.snakeJson.pop();
 
-			return [panGesture, true, biscuits, false];
-		} else return [panGesture, false, biscuits, false];
+			return [panGesture, true, biscuits, currentGameState === GAME_STATES.levelEnded, currentGameState];
+		} else return [panGesture, false, biscuits, false, currentGameState];
 	}
 }

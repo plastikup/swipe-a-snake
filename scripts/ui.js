@@ -1,5 +1,5 @@
 import { GAME_STATES, themeJson } from '../game.js';
-import { ctx, canvasSize, gameFont, canvas } from './canvasConfig.js';
+import { ctx, canvasSize, gameFont } from './canvasConfig.js';
 import { SANDBOX_MARGIN } from './sandbox.js';
 import { drawCell } from './drawCell.js';
 
@@ -9,6 +9,7 @@ export class Ui {
 	static intro(mouse) {
 		let newGameState = GAME_STATES.intro;
 		const yShift = canvasSize / 12;
+		const buttonHeight = ((Ui.gui.play.height / Ui.gui.play.width) * canvasSize) / 3;
 
 		//* title
 		ctx.font = canvasSize / 12.8 + gameFont;
@@ -22,7 +23,6 @@ export class Ui {
 		ctx.fillText('snake', canvasSize / 2 - title3Msmnt.w / 2, canvasSize / 4 + title3Msmnt.h / 2 + title1Msmnt.h + yShift);
 
 		//* buttons
-		const buttonHeight = ((Ui.gui.play.height / Ui.gui.play.width) * canvasSize) / 3;
 		{
 			const x = canvasSize / 2 - canvasSize / 6;
 			const y = canvasSize / 2 + yShift;
@@ -125,7 +125,7 @@ export class Ui {
 		return [newGameState, newLevel];
 	}
 
-	static main(currentGameState, currentLevel, snake, swipes, biscuits, swipesRequired) {
+	static main(currentLevel, snake, swipes, biscuits, swipesRequired) {
 		{
 			//* level
 			ctx.font = canvasSize * 0.024 + gameFont;
@@ -172,9 +172,43 @@ export class Ui {
 		ctx.fillText('solvable in', swipesDescriptionMsmnt.w + growthDescriptionMsmnt.w + 3 * evenSpacing, canvasSize - SANDBOX_MARGIN / 2 - 4);
 		ctx.fillText(swipesRequired + ' moves', swipesDescriptionMsmnt.w + growthDescriptionMsmnt.w + 3 * evenSpacing + solvableDescriptionMsmnt.w / 2 - solvableDatumMsmnt.w / 2, canvasSize - SANDBOX_MARGIN / 2 + solvableDatumMsmnt.h + 4);
 	}
+
+	static levelEnded() {
+		ctx.fillStyle = '#000A';
+		ctx.fillRect(0, 0, canvasSize, canvasSize);
+
+		const buttonHeight = ((Ui.gui.play.height / Ui.gui.play.width) * canvasSize) / 3;
+		const yShift = canvasSize / 12;
+
+		//* title
+		ctx.font = canvasSize / 12.8 + gameFont;
+		ctx.fillStyle = themeJson.primary;
+		const title1Msmnt = measureText('level');
+		ctx.fillText('level', canvasSize / 2 - title1Msmnt.w / 2, canvasSize / 4 + title1Msmnt.h / 2 - title1Msmnt.h);
+		ctx.fillStyle = themeJson.secondary;
+		const title2Msmnt = measureText('completed');
+		ctx.fillText('completed', canvasSize / 2 - title2Msmnt.w / 2, canvasSize / 4 + title2Msmnt.h / 2);
+
+		//* stars
+		{
+			const starsY = (canvasSize / 4 + title2Msmnt.h + canvasSize / 2 + yShift) / 2;
+
+			ctx.drawImage(Ui.gui.starActive, canvasSize / 2 - buttonHeight * 1.4, starsY - buttonHeight * 0.45, buttonHeight, buttonHeight);
+			ctx.drawImage(Ui.gui.starActive, canvasSize / 2 - buttonHeight * 0.5, starsY - buttonHeight * 0.55, buttonHeight, buttonHeight);
+			ctx.drawImage(Ui.gui.starInactive, canvasSize / 2 + buttonHeight * 0.4, starsY - buttonHeight * 0.45, buttonHeight, buttonHeight);
+		}
+
+		//* buttons
+		ctx.drawImage(Ui.gui.home, canvasSize / 2 - buttonHeight * 1.75, canvasSize / 2 + yShift, buttonHeight, buttonHeight);
+		ctx.drawImage(Ui.gui.play2, canvasSize / 2 - buttonHeight * 0.5, canvasSize / 2 + yShift, buttonHeight, buttonHeight);
+		ctx.drawImage(Ui.gui.levelSelect2, canvasSize / 2 + buttonHeight * 0.75, canvasSize / 2 + yShift, buttonHeight, buttonHeight);
+	}
 }
+
+
 Ui.gui.play = new Image();
 Ui.gui.play.src = '../assets/GUI/Buttons/Rect/PlayText/Default.png';
+
 Ui.gui.playHover = new Image();
 Ui.gui.playHover.src = '../assets/GUI/Buttons/Rect/PlayText/Hover.png';
 Ui.gui.levelSelect = new Image();
@@ -196,6 +230,18 @@ Ui.gui.star2 = new Image();
 Ui.gui.star2.src = '../assets/GUI/Level/Star/Group/2-3.png';
 Ui.gui.star3 = new Image();
 Ui.gui.star3.src = '../assets/GUI/Level/Star/Group/3-3.png';
+
+Ui.gui.home = new Image();
+Ui.gui.home.src = '../assets/GUI/Buttons/Square/Home/Default.png';
+Ui.gui.play2 = new Image();
+Ui.gui.play2.src = '../assets/GUI/Buttons/Square/Play/Default.png';
+Ui.gui.levelSelect2 = new Image();
+Ui.gui.levelSelect2.src = '../assets/GUI/Buttons/Square/Levels/Default.png';
+
+Ui.gui.starActive = new Image();
+Ui.gui.starActive.src = '../assets/GUI/Level/Star/Active.png';
+Ui.gui.starInactive = new Image();
+Ui.gui.starInactive.src = '../assets/GUI/Level/Star/Unactive.png';
 
 const measureText = (text) => {
 	const metrics = ctx.measureText(text);
