@@ -173,7 +173,9 @@ export class Ui {
 		ctx.fillText(swipesRequired + ' moves', swipesDescriptionMsmnt.w + growthDescriptionMsmnt.w + 3 * evenSpacing + solvableDescriptionMsmnt.w / 2 - solvableDatumMsmnt.w / 2, canvasSize - SANDBOX_MARGIN / 2 + solvableDatumMsmnt.h + 4);
 	}
 
-	static levelEnded() {
+	static levelEnded(mouse) {
+		let newGameState = GAME_STATES.levelEnded;
+
 		ctx.fillStyle = '#000A';
 		ctx.fillRect(0, 0, canvasSize, canvasSize);
 
@@ -199,12 +201,44 @@ export class Ui {
 		}
 
 		//* buttons
-		ctx.drawImage(Ui.gui.home, canvasSize / 2 - buttonHeight * 1.75, canvasSize / 2 + yShift, buttonHeight, buttonHeight);
-		ctx.drawImage(Ui.gui.play2, canvasSize / 2 - buttonHeight * 0.5, canvasSize / 2 + yShift, buttonHeight, buttonHeight);
-		ctx.drawImage(Ui.gui.levelSelect2, canvasSize / 2 + buttonHeight * 0.75, canvasSize / 2 + yShift, buttonHeight, buttonHeight);
+		{
+			const x = canvasSize / 2 - buttonHeight * 1.75;
+			const y = canvasSize / 2 + yShift;
+			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
+
+			ctx.drawImage(Ui.gui.home, x, y, buttonHeight, buttonHeight);
+
+			if (mouse.click && hoverState) {
+				newGameState = GAME_STATES.intro;
+			}
+		}
+		{
+			const x = canvasSize / 2 - buttonHeight * 0.5;
+			const y = canvasSize / 2 + yShift;
+			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
+
+			ctx.drawImage(Ui.gui.play2, x, y, buttonHeight, buttonHeight);
+
+			if (mouse.click && hoverState) {
+				console.log(true, 2);
+			}
+		}
+		{
+			const x = canvasSize / 2 + buttonHeight * 0.75;
+			const y = canvasSize / 2 + yShift;
+			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
+
+			ctx.drawImage(Ui.gui.levelSelect2, x, y, buttonHeight, buttonHeight);
+
+			if (mouse.click && hoverState) {
+				newGameState = GAME_STATES.levelSelect;
+			}
+		}
+
+		//* return
+		return newGameState;
 	}
 }
-
 
 Ui.gui.play = new Image();
 Ui.gui.play.src = '../assets/GUI/Buttons/Rect/PlayText/Default.png';

@@ -158,7 +158,6 @@ function loop() {
 		default:
 			break;
 	}
-	mouse.click = false;
 
 	//* core
 	switch (currentGameState) {
@@ -195,7 +194,9 @@ function loop() {
 	}
 
 	//* apply level ended mask
-	if (currentGameState === GAME_STATES.levelEnded) Ui.levelEnded();
+	if (currentGameState === GAME_STATES.levelEnded) {
+		currentGameState = Ui.levelEnded(mouse);
+	}
 
 	//* draw the mouse
 	ctx.drawImage(mouseImg, mouse.x, mouse.y, (canvasSize * 158) / 4800, (canvasSize * 254) / 4800);
@@ -207,6 +208,7 @@ function loop() {
 		currentGameState: currentGameState,
 	};
 
+	mouse.click = false;
 	requestAnimationFrame(loop);
 }
 
