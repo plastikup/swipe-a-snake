@@ -32,16 +32,16 @@ export class Ui {
 			ctx.drawImage(hoverState ? Ui.gui.playHover : Ui.gui.play, x, y, w, h + hoverState * 2);
 
 			// if click on this button
-			if (mouse.click && hoverState) newGameState = GAME_STATES.main;
+			if (mouse.click && hoverState) newGameState = GAME_STATES.levelSelect;
 		}
 		{
 			const x = canvasSize / 2 - canvasSize / 6 - buttonHeight * 1.25;
 			const y = canvasSize / 2 + yShift;
 			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
-			ctx.drawImage(hoverState ? Ui.gui.levelSelectHover : Ui.gui.levelSelect, x, y, buttonHeight, buttonHeight);
+			ctx.drawImage(hoverState ? Ui.gui.helpHover : Ui.gui.help, x, y, buttonHeight, buttonHeight);
 
 			// if click on this button
-			if (mouse.click && hoverState) newGameState = GAME_STATES.levelSelect;
+			if (mouse.click && hoverState) newGameState = GAME_STATES.help;
 		}
 		{
 			const x = canvasSize / 2 + buttonHeight * 1.25;
@@ -245,10 +245,10 @@ Ui.gui.play.src = '../assets/GUI/Buttons/Rect/PlayText/Default.png';
 
 Ui.gui.playHover = new Image();
 Ui.gui.playHover.src = '../assets/GUI/Buttons/Rect/PlayText/Hover.png';
-Ui.gui.levelSelect = new Image();
-Ui.gui.levelSelect.src = '../assets/GUI/Buttons/Square/Levels/Default.png';
-Ui.gui.levelSelectHover = new Image();
-Ui.gui.levelSelectHover.src = '../assets/GUI/Buttons/Square/Levels/Hover.png';
+Ui.gui.help = new Image();
+Ui.gui.help.src = '../assets/GUI/Buttons/Square/Help/Default.png';
+Ui.gui.helpHover = new Image();
+Ui.gui.helpHover.src = '../assets/GUI/Buttons/Square/Help/Hover.png';
 Ui.gui.soundOff = new Image();
 Ui.gui.soundOff.src = '../assets/GUI/Buttons/Square/SoundOff/Default.png';
 Ui.gui.soundOffHover = new Image();
