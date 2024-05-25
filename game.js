@@ -196,7 +196,13 @@ function loop() {
 
 	//* apply level ended mask
 	if (currentGameState === GAME_STATES.levelEnded) {
-		currentGameState = Ui.levelEnded(mouse);
+		let nextLevelShortcut = false;
+		[currentGameState, nextLevelShortcut] = Ui.levelEnded(mouse);
+
+		if (nextLevelShortcut) {
+			newLevel(currentLevel + 1);
+			currentGameState = GAME_STATES.main;
+		}
 	}
 
 	//* draw the mouse

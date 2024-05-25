@@ -175,6 +175,7 @@ export class Ui {
 
 	static levelEnded(mouse) {
 		let newGameState = GAME_STATES.levelEnded;
+		let nextLevelShortcut = false;
 
 		ctx.fillStyle = '#000A';
 		ctx.fillRect(0, 0, canvasSize, canvasSize);
@@ -206,7 +207,7 @@ export class Ui {
 			const y = canvasSize / 2 + yShift;
 			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
 
-			ctx.drawImage(Ui.gui.home, x, y, buttonHeight, buttonHeight);
+			ctx.drawImage(hoverState ? Ui.gui.homeHover : Ui.gui.home, x, y, buttonHeight, buttonHeight);
 
 			if (mouse.click && hoverState) {
 				newGameState = GAME_STATES.intro;
@@ -217,10 +218,10 @@ export class Ui {
 			const y = canvasSize / 2 + yShift;
 			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
 
-			ctx.drawImage(Ui.gui.play2, x, y, buttonHeight, buttonHeight);
+			ctx.drawImage(hoverState ? Ui.gui.play2Hover : Ui.gui.play2, x, y, buttonHeight, buttonHeight);
 
 			if (mouse.click && hoverState) {
-				console.log(true, 2);
+				nextLevelShortcut = true
 			}
 		}
 		{
@@ -228,7 +229,7 @@ export class Ui {
 			const y = canvasSize / 2 + yShift;
 			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
 
-			ctx.drawImage(Ui.gui.levelSelect2, x, y, buttonHeight, buttonHeight);
+			ctx.drawImage(hoverState ? Ui.gui.levelSelect2Hover : Ui.gui.levelSelect2, x, y, buttonHeight, buttonHeight);
 
 			if (mouse.click && hoverState) {
 				newGameState = GAME_STATES.levelSelect;
@@ -236,7 +237,7 @@ export class Ui {
 		}
 
 		//* return
-		return newGameState;
+		return [newGameState, nextLevelShortcut];
 	}
 }
 
@@ -267,10 +268,16 @@ Ui.gui.star3.src = '../assets/GUI/Level/Star/Group/3-3.png';
 
 Ui.gui.home = new Image();
 Ui.gui.home.src = '../assets/GUI/Buttons/Square/Home/Default.png';
+Ui.gui.homeHover = new Image();
+Ui.gui.homeHover.src = '../assets/GUI/Buttons/Square/Home/Hover.png';
 Ui.gui.play2 = new Image();
 Ui.gui.play2.src = '../assets/GUI/Buttons/Square/Play/Default.png';
+Ui.gui.play2Hover = new Image();
+Ui.gui.play2Hover.src = '../assets/GUI/Buttons/Square/Play/Hover.png';
 Ui.gui.levelSelect2 = new Image();
 Ui.gui.levelSelect2.src = '../assets/GUI/Buttons/Square/Levels/Default.png';
+Ui.gui.levelSelect2Hover = new Image();
+Ui.gui.levelSelect2Hover.src = '../assets/GUI/Buttons/Square/Levels/Hover.png';
 
 Ui.gui.starActive = new Image();
 Ui.gui.starActive.src = '../assets/GUI/Level/Star/Active.png';
