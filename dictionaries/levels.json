@@ -1,38 +1,67 @@
 {
-    "1": {
-        "params": {
-            "width": 8,
-            "height": 8
-        },
-        "datum": [
-            [{"cellType":"w"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"w"},{"cellType":"w"}, {"cellType":"w"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"a", "trigger": {"triggerRule": "nextLevel"}}, {"cellType":"e"}, {"cellType":"p1", "portalId": "a", "portalTo": "b"}, {"cellType":"wS"}, {"cellType":"w"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"P1", "portalId": "b", "portalTo": "a"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"w"}],
-            [{"cellType":"w"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"wN"},{"cellType":"w"},{"cellType":"w"}, {"cellType":"w"}]
-        ],
-        "snake": [{ "x": 5, "y": 3, "head": true }, { "x": 4, "y": 3 }, { "x": 3, "y": 3 }, { "x": 2, "y": 3 }],
-        "swipesRequired": 12
-    },
-    "2": {
-        "params": {
-            "width": 8,
-            "height": 8
-        },
-        "datum": [
-            [{"cellType":"w"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"wS"}, {"cellType":"w"},{"cellType":"w"}, {"cellType":"w"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"a", "trigger": {"triggerRule": "replaceCell", "x": 1, "y": 5, "datum": {"cellType":"A", "trigger": {"triggerRule": "replaceCell", "x": 4, "y": 3, "datum": {"cellType":"b", "trigger": {"triggerRule": "replaceCell", "x": 3, "y": 2, "datum": {"cellType":"b", "trigger": {"triggerRule": "nextLevel"}}}}}}}}, {"cellType":"e"}, {"cellType":"p1", "portalId": "a", "portalTo": "b"}, {"cellType":"wS"}, {"cellType":"w"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wW"}],
-            [{"cellType":"wE"}, {"cellType":"e"}, {"cellType":"P1", "portalId": "b", "portalTo": "a"}, {"cellType":"e"}, {"cellType":"e"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"w"}],
-            [{"cellType":"w"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"wN"}, {"cellType":"wN"},{"cellType":"w"},{"cellType":"w"}, {"cellType":"w"}]
-        ],
-        "snake": [{ "x": 5, "y": 3, "head": true }, { "x": 4, "y": 3 }, { "x": 3, "y": 3 }, { "x": 2, "y": 3 }],
-        "swipesRequired": 12
-    }
+	"1": {
+		"params": {
+			"width": 5,
+			"height": 5
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a", "trigger": { "triggerRule": "replaceCell", "x": 2, "y": 3, "datum": { "cellType": "A", "trigger": { "triggerRule": "nextLevel" } } } }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 1, "y": 3, "head": true },
+			{ "x": 2, "y": 3 },
+			{ "x": 3, "y": 3 }
+		],
+		"swipesRequired": 4
+	},
+	"6": {
+		"params": {
+			"width": 8,
+			"height": 8
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a", "trigger": { "triggerRule": "replaceCell", "x": 1, "y": 5, "datum": { "cellType": "A", "trigger": { "triggerRule": "replaceCell", "x": 4, "y": 3, "datum": { "cellType": "b", "trigger": { "triggerRule": "replaceCell", "x": 3, "y": 2, "datum": { "cellType": "b", "trigger": { "triggerRule": "nextLevel" } } } } } } } }, { "cellType": "e" }, { "cellType": "p1", "portalId": "a", "portalTo": "b" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "P1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 5, "y": 3, "head": true },
+			{ "x": 4, "y": 3 },
+			{ "x": 3, "y": 3 },
+			{ "x": 2, "y": 3 }
+		],
+		"swipesRequired": 12
+	},
+	"TEMPLATE": {
+		"params": {
+			"width": 8,
+			"height": 8
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 5, "y": 3, "head": true },
+			{ "x": 4, "y": 3 },
+			{ "x": 3, "y": 3 },
+			{ "x": 2, "y": 3 }
+		],
+		"swipesRequired": 12
+	}
 }
