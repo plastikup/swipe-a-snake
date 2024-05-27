@@ -152,7 +152,7 @@ function loop() {
 		case GAME_STATES.main: {
 			ctx.fillStyle = '#000';
 			ctx.fillRect(0, 0, canvasSize, canvasSize);
-			Ui.main(currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired);
+			Ui.main(currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired, getCurrentLevelJson().levelName);
 			break;
 		}
 

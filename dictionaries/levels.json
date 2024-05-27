@@ -16,16 +16,18 @@
 			{ "x": 2, "y": 3 },
 			{ "x": 3, "y": 3 }
 		],
-		"swipesRequired": 4
+		"swipesRequired": 4,
+        "levelName": "the beginning"
 	},
 	"2": {
 		"params": {
 			"width": 6,
-			"height": 8
+			"height": 9
 		},
 		"datum": [
 			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a", "trigger": { "triggerRule": "replaceCell", "x": 2, "y": 3, "datum": { "cellType": "b", "trigger": { "triggerRule": "nextLevel" } } } }, { "cellType": "wW" }],
@@ -34,11 +36,13 @@
 			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
 		],
 		"snake": [
-			{ "x": 1, "y": 3, "head": true },
+			{ "x": 1, "y": 4, "head": true },
+			{ "x": 1, "y": 3 },
 			{ "x": 1, "y": 2 },
 			{ "x": 1, "y": 1 }
 		],
-		"swipesRequired": 9
+		"swipesRequired": 9,
+        "levelName": "the corridor"
 	},
 	"6": {
 		"params": {
@@ -61,7 +65,8 @@
 			{ "x": 3, "y": 3 },
 			{ "x": 2, "y": 3 }
 		],
-		"swipesRequired": 12
+		"swipesRequired": 12,
+        "levelName": "your end"
 	},
 	"TEMPLATE": {
 		"params": {

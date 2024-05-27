@@ -125,13 +125,13 @@ export class Ui {
 		return [newGameState, newLevel];
 	}
 
-	static main(currentLevel, snake, swipes, biscuits, swipesRequired) {
+	static main(currentLevel, snake, swipes, biscuits, swipesRequired, levelName) {
 		{
 			//* level
 			ctx.font = canvasSize * 0.024 + gameFont;
 			ctx.fillStyle = themeJson.secondary;
-			const msmnt = measureText('level ' + currentLevel);
-			ctx.fillText('level ' + currentLevel, canvasSize / 2 - msmnt.w / 2, SANDBOX_MARGIN / 2 + msmnt.h + 8);
+			const msmnt = measureText(`level ${currentLevel}: ${levelName}`);
+			ctx.fillText(`level ${currentLevel}: ${levelName}`, canvasSize / 2 - msmnt.w / 2, SANDBOX_MARGIN / 2 + msmnt.h + 8);
 		}
 		{
 			//* title
@@ -221,7 +221,7 @@ export class Ui {
 			ctx.drawImage(hoverState ? Ui.gui.play2Hover : Ui.gui.play2, x, y, buttonHeight, buttonHeight);
 
 			if (mouse.click && hoverState) {
-				nextLevelShortcut = true
+				nextLevelShortcut = true;
 			}
 		}
 		{
