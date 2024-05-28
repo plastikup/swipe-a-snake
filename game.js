@@ -105,9 +105,13 @@ canvas.addEventListener('mousemove', function (event) {
 	mouse.x = event.offsetX;
 	mouse.y = event.offsetY;
 });
+const instructions = document.getElementById('instructions');
+instructions.addEventListener('click', function () {
+	instructions.hidden = true;
+});
 document.addEventListener('click', function () {
 	mouse.click = true;
-	document.getElementById('instructions').hidden = true
+	instructions.hidden = true;
 });
 
 /* GAME */

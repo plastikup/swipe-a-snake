@@ -7,12 +7,11 @@
 		<title>Swipe a Snake</title>
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 			body {
 				margin: 0;
 				background-color: #fff;
-
-				cursor: none;
 			}
 
 			canvas {
@@ -26,32 +25,44 @@
 
 				z-index: 1;
 			}
+			canvas:hover {
+				cursor: none;
+			}
 
 			p {
+				font-family: 'Inter', sans-serif;
+				font-size: 18px;
+
+				text-align: center;
+
+				padding: 12px;
+
+				color: azure;
+				background-color: rgba(25, 0, 61, 0.667);
+
 				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
 
-				color: azure;
-				text-align: center;
-				font-size: 22px;
-
-				background-color: #000A;
-
 				z-index: 2;
+			}
+
+			p:hover {
+				cursor: auto;
 			}
 		</style>
 	</head>
 	<body>
 		<canvas id="game"></canvas>
-		<p id="instructions" hidden>abciuberbncwjndn ccfebwivnvcneiwn ee ribiewucin
-			juhvbedbnewj
-			iueavrvwnjcnmc
-			biujebvbsjnar
-			evarin
-			kjeavrncijaw
-			lkjnaervubai
+		<p id="instructions" hidden>
+			<b>SWIPE A SNAKE: THE INSTRUCTIONS</b>
+			<br /><br />
+			Use WASD/arrow keys or swipe your screen to control your character, a snake. Your goal in each level is to eat all apples/cookies.
+			<br /><br />
+			Have fun figuring out everything else by yourself!!
+			<br /><br />
+			Junyi@2024
 		</p>
 	</body>
 	<script type="module" src="./game.js"></script>
