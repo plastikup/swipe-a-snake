@@ -88,9 +88,9 @@ export class Ui {
 				h: canvasSize / 3,
 			};
 			for (let i = 0; i < 3; i++) {
-				for (let j = 0; j < 4; j++) {
+				for (let j = 0; j < 3; j++) {
 					const dummyPosition = {
-						tlx: canvasSize / 2 - levelDummyDimensions.w / 2 + ((j - 1.5) * (canvasSize - SANDBOX_MARGIN * 2)) / 3.25,
+						tlx: canvasSize / 2 - levelDummyDimensions.w / 2 + ((j - 1) * (canvasSize - SANDBOX_MARGIN * 2)) / 3.25,
 						tly: (SANDBOX_MARGIN / 2 + 4 + (canvasSize - SANDBOX_MARGIN / 2 - noteMsmnt.h)) / 2 - levelDummyDimensions.h / 2 + ((i - 1) * (canvasSize - SANDBOX_MARGIN * 2)) / 2.75,
 					};
 					dummyPosition.cx = dummyPosition.tlx + levelDummyDimensions.w / 2;
@@ -105,19 +105,19 @@ export class Ui {
 					// if click on this dummy
 					if (mouse.click && hoverState) {
 						newGameState = GAME_STATES.main;
-						newLevel = i * 4 + j + 1;
+						newLevel = i * 3 + j + 1;
 					}
 
 					{
 						//* level id
 						ctx.font = canvasSize * 0.08 + gameFont;
 						ctx.fillStyle = themeJson.gray;
-						const msmnt = measureText(i * 4 + j + 1);
-						ctx.fillText(i * 4 + j + 1, dummyPosition.cx - msmnt.w / 2, dummyPosition.cy + msmnt.h / 2 - levelDummyDimensions.h * 0.075);
+						const msmnt = measureText(i * 3 + j + 1);
+						ctx.fillText(i * 3 + j + 1, dummyPosition.cx - msmnt.w / 2, dummyPosition.cy + msmnt.h / 2 - levelDummyDimensions.h * 0.075);
 					}
 
 					//* stars
-					ctx.drawImage(Ui.gui['star' + levelProgress[i * 4 + j]], dummyPosition.cx - levelDummyDimensions.w * 0.3, dummyPosition.cy + levelDummyDimensions.h * 0.05, levelDummyDimensions.w * 0.6, (levelDummyDimensions.w * 0.6 * 32) / 77);
+					ctx.drawImage(Ui.gui['star' + levelProgress[i * 3 + j]], dummyPosition.cx - levelDummyDimensions.w * 0.3, dummyPosition.cy + levelDummyDimensions.h * 0.05, levelDummyDimensions.w * 0.6, (levelDummyDimensions.w * 0.6 * 32) / 77);
 				}
 			}
 		}
