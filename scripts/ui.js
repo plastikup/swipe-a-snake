@@ -1,7 +1,6 @@
 import { GAME_STATES, themeJson } from '../game.js';
 import { ctx, canvasSize, gameFont } from './canvasConfig.js';
 import { SANDBOX_MARGIN } from './sandbox.js';
-import { drawCell } from './drawCell.js';
 
 export class Ui {
 	static gui = {};
@@ -142,7 +141,7 @@ export class Ui {
 		return [newGameState, newLevel];
 	}
 
-	static main(currentLevel, snake, swipes, biscuits, swipesRequired, levelName) {
+	static main(currentLevel, snake, swipes, swipesRequired, levelName) {
 		{
 			//* level
 			ctx.font = canvasSize * 0.024 + gameFont;
@@ -156,14 +155,6 @@ export class Ui {
 			ctx.fillStyle = themeJson.primary;
 			const msmnt = measureText('Swipe-a-Snake');
 			ctx.fillText('Swipe-a-Snake', canvasSize / 2 - msmnt.w / 2, SANDBOX_MARGIN / 2 + 4);
-		}
-		{
-			//* biscuits
-			drawCell(canvasSize - 28, 28, 32, 'b', true);
-			ctx.font = canvasSize * 0.024 + gameFont;
-			ctx.fillStyle = themeJson.cookie;
-			const msmnt = measureText(biscuits);
-			ctx.fillText(biscuits, canvasSize - 44 - msmnt.w - 4, msmnt.h / 2 + 28);
 		}
 
 		//* bottom stats

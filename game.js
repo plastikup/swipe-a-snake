@@ -25,7 +25,6 @@ let snake;
 
 let swipes = 0;
 let starsGotten = 0;
-let biscuits = +localStorage.getItem('biscuits') || 0;
 
 export let themeJson;
 
@@ -159,7 +158,7 @@ function loop() {
 		case GAME_STATES.main: {
 			ctx.fillStyle = '#000';
 			ctx.fillRect(0, 0, canvasSize, canvasSize);
-			Ui.main(currentLevel, snake, swipes, biscuits, getCurrentLevelJson().swipesRequired, getCurrentLevelJson().levelName);
+			Ui.main(currentLevel, snake, swipes, getCurrentLevelJson().swipesRequired, getCurrentLevelJson().levelName);
 			break;
 		}
 
@@ -187,7 +186,7 @@ function loop() {
 			gameSandbox.loop();
 
 			if (currentGameState === GAME_STATES.main) {
-				[panGesture, panGestureLock, biscuits, endOfMovement, currentGameState, starsGotten] = snake.move(panGesture, biscuits, currentGameState, swipes);
+				[panGesture, panGestureLock, endOfMovement, currentGameState, starsGotten] = snake.move(panGesture, currentGameState, swipes);
 
 				if (currentGameState === GAME_STATES.levelEnded) {
 					sfx.endOfLevel.play();
@@ -228,7 +227,6 @@ function loop() {
 	//* for debug purposes only
 	window.selfVars = {
 		snake: snake,
-		biscuits: biscuits,
 		currentGameState: currentGameState,
 	};
 

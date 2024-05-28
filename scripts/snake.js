@@ -22,7 +22,7 @@ export class Snake {
 
 	isSolidCollision = (cell, nextX, nextY) => this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0 || cellTypesJson[cell.datum.cellType].collisionRule === 'solid';
 
-	move(panGesture, biscuits, currentGameState, swipes) {
+	move(panGesture, currentGameState, swipes) {
 		if (panGesture !== undefined) {
 			let starsGotten = 0;
 			this.snakeDirection = panGesture;
@@ -62,7 +62,7 @@ export class Snake {
 
 			//* collision rules
 			// exit if solid collision
-			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits, true, currentGameState, 0];
+			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, true, currentGameState, 0];
 			// execute collectible rulesets
 			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'collectible') {
 				switch (nextCell.datum.cellType) {
@@ -130,7 +130,7 @@ export class Snake {
 			//* delete the tail of the snake
 			this.snakeJson.pop();
 
-			return [panGesture, true, biscuits, currentGameState === GAME_STATES.levelEnded, currentGameState, starsGotten];
-		} else return [panGesture, false, biscuits, false, currentGameState, 0];
+			return [panGesture, true, currentGameState === GAME_STATES.levelEnded, currentGameState, starsGotten];
+		} else return [panGesture, false, false, currentGameState, 0];
 	}
 }
