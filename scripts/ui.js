@@ -141,7 +141,7 @@ export class Ui {
 		return [newGameState, newLevel];
 	}
 
-	static main(currentLevel, snake, swipes, swipesRequired, levelName) {
+	static main(currentLevel, snake, swipes, swipesRequired, levelName, mouse, currentGameState) {
 		{
 			//* level
 			ctx.font = canvasSize * 0.024 + gameFont;
@@ -155,6 +155,15 @@ export class Ui {
 			ctx.fillStyle = themeJson.primary;
 			const msmnt = measureText('Swipe-a-Snake');
 			ctx.fillText('Swipe-a-Snake', canvasSize / 2 - msmnt.w / 2, SANDBOX_MARGIN / 2 + 4);
+		}
+		{
+			//* exit
+			const hoverState = isInsideBox(SANDBOX_MARGIN / 2 - 16, SANDBOX_MARGIN / 2 - 16, 32, 32, mouse.x, mouse.y);
+			ctx.drawImage(hoverState ? Ui.gui.levelSelectHover : Ui.gui.levelSelect, SANDBOX_MARGIN / 2 - 16, SANDBOX_MARGIN / 2 - 16, 32, 32);
+			if (mouse.click && hoverState) {
+				const r = confirm("Are you sure you want to exit? This level's progress will not be saved.");
+				if (r) currentGameState = GAME_STATES.levelSelect;
+			}
 		}
 
 		//* bottom stats
@@ -179,6 +188,8 @@ export class Ui {
 		ctx.fillStyle = themeJson.secondary;
 		ctx.fillText('solvable in', swipesDescriptionMsmnt.w + growthDescriptionMsmnt.w + 3 * evenSpacing, canvasSize - SANDBOX_MARGIN / 2 - 4);
 		ctx.fillText(swipesRequired + ' moves', swipesDescriptionMsmnt.w + growthDescriptionMsmnt.w + 3 * evenSpacing + solvableDescriptionMsmnt.w / 2 - solvableDatumMsmnt.w / 2, canvasSize - SANDBOX_MARGIN / 2 + solvableDatumMsmnt.h + 4);
+
+		return currentGameState;
 	}
 
 	static levelEnded(mouse, starsGotten) {
@@ -237,7 +248,7 @@ export class Ui {
 			const y = canvasSize / 2 + yShift;
 			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
 
-			ctx.drawImage(hoverState ? Ui.gui.levelSelect2Hover : Ui.gui.levelSelect2, x, y, buttonHeight, buttonHeight);
+			ctx.drawImage(hoverState ? Ui.gui.levelSelectHover : Ui.gui.levelSelect, x, y, buttonHeight, buttonHeight);
 
 			if (mouse.click && hoverState) {
 				newGameState = GAME_STATES.levelSelect;
@@ -286,10 +297,10 @@ Ui.gui.play2 = new Image();
 Ui.gui.play2.src = '../assets/GUI/Buttons/Square/Play/Default.png';
 Ui.gui.play2Hover = new Image();
 Ui.gui.play2Hover.src = '../assets/GUI/Buttons/Square/Play/Hover.png';
-Ui.gui.levelSelect2 = new Image();
-Ui.gui.levelSelect2.src = '../assets/GUI/Buttons/Square/Levels/Default.png';
-Ui.gui.levelSelect2Hover = new Image();
-Ui.gui.levelSelect2Hover.src = '../assets/GUI/Buttons/Square/Levels/Hover.png';
+Ui.gui.levelSelect = new Image();
+Ui.gui.levelSelect.src = '../assets/GUI/Buttons/Square/Levels/Default.png';
+Ui.gui.levelSelectHover = new Image();
+Ui.gui.levelSelectHover.src = '../assets/GUI/Buttons/Square/Levels/Hover.png';
 
 Ui.gui.starActive = new Image();
 Ui.gui.starActive.src = '../assets/GUI/Level/Star/Active.png';
