@@ -36,6 +36,29 @@
 		"maxGrowth": 5,
 		"levelName": "hungry as you are"
 	},
+	"3": {
+		"params": {
+			"width": 9,
+			"height": 8
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 1, "y": 3, "head": true },
+			{ "x": 1, "y": 2 }
+		],
+		"swipesRequired": 16,
+		"maxGrowth": 8,
+		"levelName": "which apple?"
+	},
 	"4": {
 		"params": {
 			"width": 8,
@@ -182,27 +205,5 @@
 		"swipesRequired": 18,
 		"maxGrowth": 10,
 		"levelName": "the labyrinth"
-	},
-	"TEMPLATE": {
-		"params": {
-			"width": 7,
-			"height": 7
-		},
-		"datum": [
-			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
-		],
-		"snake": [
-			{ "x": 1, "y": 3, "head": true },
-			{ "x": 2, "y": 3 },
-			{ "x": 3, "y": 3 }
-		],
-		"swipesRequired": 4,
-		"levelName": "the carrefour"
 	}
 }
