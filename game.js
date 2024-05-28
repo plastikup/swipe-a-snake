@@ -107,6 +107,7 @@ canvas.addEventListener('mousemove', function (event) {
 });
 document.addEventListener('click', function () {
 	mouse.click = true;
+	document.getElementById('instructions').hidden = true
 });
 
 /* GAME */
@@ -183,8 +184,8 @@ function loop() {
 			}
 			snake.draw();
 
-			if (newPan) newPan = false;
-			else swipes += +endOfMovement;
+			newPan = false;
+			swipes += +endOfMovement;
 
 			break;
 		}

@@ -66,9 +66,6 @@ export class Snake {
 			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'collectible') {
 				switch (nextCell.datum.cellType) {
 					case 'b':
-						// biscuits
-						biscuits++;
-						break;
 					case 'a':
 						// apple
 						this.snakeJson.push({ ...this.snakeJson[this.snakeJson.length] });
