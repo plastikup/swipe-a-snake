@@ -63,6 +63,7 @@ export class Ui {
 				if (Ui.music.paused) {
 					Ui.music.play();
 					Ui.music.loop = true;
+					Ui.music.volume = 0.5;
 				} else {
 					Ui.music.pause();
 				}

@@ -57,6 +57,9 @@ gest.on('panend', function (event) {
 	}
 
 	panGestureLock = true;
+
+	sfx.swipe.currentTime = 0.05;
+	sfx.swipe.play();
 });
 document.addEventListener('keyup', function (event) {
 	if (panGestureLock) return;
@@ -64,27 +67,28 @@ document.addEventListener('keyup', function (event) {
 		case 'ArrowUp':
 		case 'KeyW':
 			panGesture = 'N';
-			panGestureLock = true;
 			break;
 		case 'ArrowDown':
 		case 'KeyS':
 			panGesture = 'S';
-			panGestureLock = true;
 			break;
 		case 'ArrowLeft':
 		case 'KeyA':
 			panGesture = 'W';
-			panGestureLock = true;
 			break;
 		case 'ArrowRight':
 		case 'KeyD':
 			panGesture = 'E';
-			panGestureLock = true;
 			break;
 
 		default:
-			break;
+			return;
 	}
+
+	panGestureLock = true;
+
+	sfx.swipe.currentTime = 0.05;
+	sfx.swipe.play();
 });
 
 /* CURSOR */
@@ -107,6 +111,12 @@ document.addEventListener('click', function () {
 	mouse.click = true;
 	instructions.hidden = true;
 });
+
+/* SFX */
+const sfx = {
+	swipe: new Audio('./assets/sfx/8-bit-explosion.mp3'),
+	endOfLevel: new Audio('./assets/sfx/8-bit-powerup.mp3'),
+};
 
 /* GAME */
 export const GAME_STATES = {
@@ -179,6 +189,10 @@ function loop() {
 
 			if (currentGameState === GAME_STATES.main) {
 				[panGesture, panGestureLock, biscuits, endOfMovement, currentGameState] = snake.move(panGesture, biscuits, currentGameState);
+
+				if (currentGameState === GAME_STATES.levelEnded) {
+					sfx.endOfLevel.play();
+				}
 			}
 			snake.draw();
 
