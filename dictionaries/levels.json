@@ -19,6 +19,25 @@
 		"swipesRequired": 4,
 		"levelName": "the beginning"
 	},
+    "2": {
+		"params": {
+			"width": 5,
+			"height": 5
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 2, "y": 2, "head": true }
+		],
+		"swipesRequired": 4,
+		"maxGrowth": 5,
+		"levelName": "hungry as you are"
+	},
 	"5": {
 		"params": {
 			"width": 6,
