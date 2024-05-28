@@ -192,7 +192,7 @@ function loop() {
 				if (currentGameState === GAME_STATES.levelEnded) {
 					sfx.endOfLevel.play();
 
-					levelProgress[currentLevel - 1] = starsGotten;
+					levelProgress[currentLevel - 1] = Math.max(starsGotten, levelProgress[currentLevel - 1]);
 					localStorage.setItem('levelProgress', JSON.stringify(levelProgress));
 				}
 			}
