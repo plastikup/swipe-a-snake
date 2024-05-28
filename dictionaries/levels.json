@@ -38,6 +38,31 @@
 		"maxGrowth": 5,
 		"levelName": "hungry as you are"
 	},
+	"4": {
+		"params": {
+			"width": 8,
+			"height": 9
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "A", "trigger": { "triggerRule": "nextLevel" } }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 4, "y": 5, "datum": { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 2, "y": 5, "datum": { "cellType": "p1", "portalTo": "a" } } } } }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "p1", "portalId": "b", "portalTo": "a"  }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 2, "y": 3, "head": true },
+			{ "x": 1, "y": 3 },
+			{ "x": 1, "y": 4 },
+			{ "x": 1, "y": 5 }
+		],
+		"swipesRequired": 9,
+		"levelName": "the apple trap"
+	},
 	"5": {
 		"params": {
 			"width": 6,
