@@ -52,10 +52,21 @@ export class Ui {
 			const x = canvasSize / 2 + buttonHeight * 1.25;
 			const y = canvasSize / 2 + yShift;
 			const hoverState = isInsideBox(x, y, buttonHeight, buttonHeight, mouse.x, mouse.y);
-			ctx.drawImage(hoverState ? Ui.gui.soundOffHover : Ui.gui.soundOff, x, y, buttonHeight, buttonHeight);
+			if (Ui.music.paused) {
+				ctx.drawImage(hoverState ? Ui.gui.soundOffHover : Ui.gui.soundOff, x, y, buttonHeight, buttonHeight);
+			} else {
+				ctx.drawImage(hoverState ? Ui.gui.soundOnHover : Ui.gui.soundOn, x, y, buttonHeight, buttonHeight);
+			}
 
 			// if click on this button
-			// TODO add music - if (mouse.click && hoverState)
+			if (mouse.click && hoverState) {
+				if (Ui.music.paused) {
+					Ui.music.play();
+					Ui.music.loop = true;
+				} else {
+					Ui.music.pause();
+				}
+			}
 		}
 
 		return newGameState;
@@ -259,6 +270,10 @@ Ui.gui.soundOff = new Image();
 Ui.gui.soundOff.src = '../assets/GUI/Buttons/Square/SoundOff/Default.png';
 Ui.gui.soundOffHover = new Image();
 Ui.gui.soundOffHover.src = '../assets/GUI/Buttons/Square/SoundOff/Hover.png';
+Ui.gui.soundOn = new Image();
+Ui.gui.soundOn.src = '../assets/GUI/Buttons/Square/SoundOn/Default.png';
+Ui.gui.soundOnHover = new Image();
+Ui.gui.soundOnHover.src = '../assets/GUI/Buttons/Square/SoundOn/Hover.png';
 
 Ui.gui.levelDummy = new Image();
 Ui.gui.levelDummy.src = '../assets/GUI/Level/Button/Dummy.png';
@@ -288,6 +303,8 @@ Ui.gui.starActive = new Image();
 Ui.gui.starActive.src = '../assets/GUI/Level/Star/Active.png';
 Ui.gui.starInactive = new Image();
 Ui.gui.starInactive.src = '../assets/GUI/Level/Star/Unactive.png';
+
+Ui.music = new Audio('../assets/music.mp3');
 
 const measureText = (text) => {
 	const metrics = ctx.measureText(text);
