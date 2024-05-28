@@ -19,7 +19,7 @@
 		"swipesRequired": 4,
 		"levelName": "the beginning"
 	},
-	"2": {
+	"5": {
 		"params": {
 			"width": 6,
 			"height": 9
@@ -44,30 +44,6 @@
 		"swipesRequired": 9,
 		"levelName": "the corridor"
 	},
-	"3": {
-		"params": {
-			"width": 8,
-			"height": 8
-		},
-		"datum": [
-			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
-			[{ "cellType": "wE" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "p2", "portalId": "c", "portalTo": "d" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "P2", "portalId": "d", "portalTo": "c" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "w" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
-		],
-		"snake": [
-			{ "x": 2, "y": 3, "head": true },
-			{ "x": 3, "y": 3 },
-			{ "x": 4, "y": 3 }
-		],
-		"swipesRequired": 7,
-        "maxGrowth": 9,
-		"levelName": "you are a maze(ing)"
-	},
 	"6": {
 		"params": {
 			"width": 8,
@@ -91,6 +67,52 @@
 		],
 		"swipesRequired": 12,
 		"levelName": "your end"
+	},
+	"7": {
+		"params": {
+			"width": 9,
+			"height": 7
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "wS" }, { "cellType": "P1", "portalTo": "b" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 1, "y": 3, "datum": { "cellType": "e" } } }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 1, "y": 3, "datum": { "cellType": "w" } } }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 5, "y": 1, "datum": { "cellType": "wS" } } }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a", "trigger": { "triggerRule": "nextLevel" } }, { "cellType": "wN" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 1, "y": 4, "head": true },
+			{ "x": 1, "y": 5 },
+			{ "x": 2, "y": 5 }
+		],
+		"swipesRequired": 8,
+		"levelName": "escape room"
+	},
+	"8": {
+		"params": {
+			"width": 8,
+			"height": 8
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "w" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "p2", "portalId": "c", "portalTo": "d" }, { "cellType": "w" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "P2", "portalId": "d", "portalTo": "c" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "w" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 2, "y": 3, "head": true },
+			{ "x": 3, "y": 3 },
+			{ "x": 4, "y": 3 }
+		],
+		"swipesRequired": 7,
+		"maxGrowth": 9,
+		"levelName": "you are a maze(ing)"
 	},
 	"TEMPLATE": {
 		"params": {

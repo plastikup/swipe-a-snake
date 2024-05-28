@@ -85,6 +85,7 @@ export class Snake {
 			}
 
 			//* trigger rule
+			console.log(typeof nextCell.datum.trigger)
 			if (typeof nextCell.datum.trigger === 'object') {
 				const triggerDatum = nextCell.datum.trigger;
 
