@@ -1,6 +1,6 @@
 import { drawCell } from './drawCell.js';
 import { calculateDimensions } from './sandbox.js';
-import { GAME_STATES, cellTypesJson } from '../game.js';
+import { GAME_STATES, cellTypesJson, getCurrentLevelJson } from '../game.js';
 import { Cell } from '../scripts/sandbox.js';
 
 export class Snake {
@@ -101,6 +101,12 @@ export class Snake {
 						console.warn('unknown triggerRule.');
 						break;
 				}
+			}
+
+			//* max growth
+			if (this.snakeJson.length >= getCurrentLevelJson()?.maxGrowth && typeof getCurrentLevelJson().maxGrowth === 'number') {
+				console.warn('LEVEL ENDED!!');
+				currentGameState = GAME_STATES.levelEnded;
 			}
 
 			//* displace the head of the snake

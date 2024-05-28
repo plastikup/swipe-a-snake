@@ -19,7 +19,7 @@ console.log(levelProgress);
 /* GLOB VARIABLES */
 let allLevelsJson;
 let currentLevel = 1;
-let getCurrentLevelJson = () => JSON.parse(JSON.stringify(allLevelsJson[currentLevel])); //! use gameSandbox.grid to access updated level data instead
+export let getCurrentLevelJson = () => JSON.parse(JSON.stringify(allLevelsJson[currentLevel])); //! use gameSandbox.grid to access updated level data instead
 
 export let cellTypesJson;
 let gameSandbox;

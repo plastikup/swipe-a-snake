@@ -65,6 +65,7 @@
 			{ "x": 4, "y": 3 }
 		],
 		"swipesRequired": 7,
+        "maxGrowth": 9,
 		"levelName": "you are a maze(ing)"
 	},
 	"6": {
