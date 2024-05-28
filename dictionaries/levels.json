@@ -42,14 +42,14 @@
 			"height": 8
 		},
 		"datum": [
-			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "A" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "w" }]
 		],
 		"snake": [
 			{ "x": 1, "y": 3, "head": true },
@@ -184,16 +184,16 @@
 			"height": 10
 		},
 		"datum": [
-			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 8, "y": 7, "datum": { "cellType": "e" } } }, { "cellType": "w" }, { "cellType": "A", "trigger": { "triggerRule": "replaceCell", "x": 8, "y": 5, "datum": { "cellType": "p2", "portalId": "c", "portalTo": "d" } } }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 8, "y": 8, "datum": { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 6, "y": 6, "datum": { "cellType": "b" } } } } }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 8, "y": 7, "datum": { "cellType": "e" } } }, { "cellType": "w" }, { "cellType": "A", "trigger": { "triggerRule": "replaceCell", "x": 8, "y": 5, "datum": { "cellType": "p2", "portalId": "c", "portalTo": "d" } } }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "wS" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 8, "y": 8, "datum": { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 6, "y": 6, "datum": { "cellType": "b" } } } } }, { "cellType": "wW" }],
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e", "trigger": { "triggerRule": "replaceCell", "x": 3, "y": 6, "datum": { "cellType": "A", "trigger": { "triggerRule": "replaceCell", "x": 1, "y": 8, "datum": { "cellType": "P2", "portalId": "d", "portalTo": "c" } } } } }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wN" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "w" }]
 		],
 		"snake": [
 			{ "x": 4, "y": 3, "head": true },
