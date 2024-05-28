@@ -33,7 +33,6 @@ export let themeJson;
 /* GAME GESTURES */
 // eslint-disable-next-line no-undef
 const gest = new Hammer(document);
-let newPan = false;
 let panGesture = undefined;
 let panGestureLock = false;
 gest.on('panend', function (event) {
@@ -57,7 +56,6 @@ gest.on('panend', function (event) {
 			break;
 	}
 
-	newPan = true;
 	panGestureLock = true;
 });
 document.addEventListener('keyup', function (event) {
@@ -65,25 +63,21 @@ document.addEventListener('keyup', function (event) {
 	switch (event.code) {
 		case 'ArrowUp':
 		case 'KeyW':
-			newPan = true;
 			panGesture = 'N';
 			panGestureLock = true;
 			break;
 		case 'ArrowDown':
 		case 'KeyS':
-			newPan = true;
 			panGesture = 'S';
 			panGestureLock = true;
 			break;
 		case 'ArrowLeft':
 		case 'KeyA':
-			newPan = true;
 			panGesture = 'W';
 			panGestureLock = true;
 			break;
 		case 'ArrowRight':
 		case 'KeyD':
-			newPan = true;
 			panGesture = 'E';
 			panGestureLock = true;
 			break;
@@ -188,7 +182,6 @@ function loop() {
 			}
 			snake.draw();
 
-			newPan = false;
 			swipes += +endOfMovement;
 
 			break;
@@ -261,7 +254,6 @@ function newLevel(level) {
 	gameSandbox = new Sandbox(getCurrentLevelJson().params.width, getCurrentLevelJson().params.height, getCurrentLevelJson().datum);
 	snake = new Snake(getCurrentLevelJson().snake, gameSandbox);
 
-	newPan = false;
 	panGesture = undefined;
 	panGestureLock = false;
 
