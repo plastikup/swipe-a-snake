@@ -22,8 +22,9 @@ export class Snake {
 
 	isSolidCollision = (cell, nextX, nextY) => this.snakeJson.filter((e) => e.x === nextX && e.y === nextY).length !== 0 || cellTypesJson[cell.datum.cellType].collisionRule === 'solid';
 
-	move(panGesture, biscuits, currentGameState) {
+	move(panGesture, biscuits, currentGameState, swipes) {
 		if (panGesture !== undefined) {
+			let starsGotten = 0;
 			this.snakeDirection = panGesture;
 
 			//* determine nextCell
@@ -61,7 +62,7 @@ export class Snake {
 
 			//* collision rules
 			// exit if solid collision
-			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits, true, currentGameState];
+			if (this.isSolidCollision(nextCell, nextX, nextY)) return [undefined, false, biscuits, true, currentGameState, 0];
 			// execute collectible rulesets
 			if (cellTypesJson[nextCell.datum.cellType].collisionRule === 'collectible') {
 				switch (nextCell.datum.cellType) {
@@ -94,6 +95,11 @@ export class Snake {
 						break;
 					case 'nextLevel':
 						console.warn('LEVEL ENDED!!');
+						// stars
+						if (getCurrentLevelJson().swipesRequired >= swipes + 1) starsGotten = 3;
+						else if (getCurrentLevelJson().swipesRequired * 1.5 >= swipes + 1) starsGotten = 2;
+						else starsGotten = 1;
+
 						currentGameState = GAME_STATES.levelEnded;
 						break;
 
@@ -106,6 +112,11 @@ export class Snake {
 			//* max growth
 			if (this.snakeJson.length >= getCurrentLevelJson()?.maxGrowth && typeof getCurrentLevelJson().maxGrowth === 'number') {
 				console.warn('LEVEL ENDED!!');
+				// stars
+				if (getCurrentLevelJson().swipesRequired >= swipes + 1) starsGotten = 3;
+				else if (getCurrentLevelJson().swipesRequired * 1.5 >= swipes + 1) starsGotten = 2;
+				else starsGotten = 1;
+
 				currentGameState = GAME_STATES.levelEnded;
 			}
 
@@ -119,7 +130,7 @@ export class Snake {
 			//* delete the tail of the snake
 			this.snakeJson.pop();
 
-			return [panGesture, true, biscuits, currentGameState === GAME_STATES.levelEnded, currentGameState];
-		} else return [panGesture, false, biscuits, false, currentGameState];
+			return [panGesture, true, biscuits, currentGameState === GAME_STATES.levelEnded, currentGameState, starsGotten];
+		} else return [panGesture, false, biscuits, false, currentGameState, 0];
 	}
 }

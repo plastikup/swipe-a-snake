@@ -7,9 +7,7 @@ import { Ui } from './scripts/ui.js';
 import { canvas, canvasSize, ctx } from './scripts/canvasConfig.js';
 
 /* LEVEL PROGRESS */
-// eslint-disable-next-line no-constant-condition
-if (localStorage.getItem('levelProgress') === null || true) {
-	//! remove constant condition in the future
+if (localStorage.getItem('levelProgress') === null) {
 	console.info('first time playing; setting brand new level progress JSON data');
 	localStorage.setItem('levelProgress', JSON.stringify([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
 }
@@ -26,6 +24,7 @@ let gameSandbox;
 let snake;
 
 let swipes = 0;
+let starsGotten = 0;
 let biscuits = +localStorage.getItem('biscuits') || 0;
 
 export let themeJson;
@@ -188,10 +187,13 @@ function loop() {
 			gameSandbox.loop();
 
 			if (currentGameState === GAME_STATES.main) {
-				[panGesture, panGestureLock, biscuits, endOfMovement, currentGameState] = snake.move(panGesture, biscuits, currentGameState);
+				[panGesture, panGestureLock, biscuits, endOfMovement, currentGameState, starsGotten] = snake.move(panGesture, biscuits, currentGameState, swipes);
 
 				if (currentGameState === GAME_STATES.levelEnded) {
 					sfx.endOfLevel.play();
+
+					levelProgress[currentLevel - 1] = starsGotten;
+					localStorage.setItem('levelProgress', JSON.stringify(levelProgress));
 				}
 			}
 			snake.draw();
@@ -208,11 +210,11 @@ function loop() {
 	//* apply level ended mask
 	if (currentGameState === GAME_STATES.levelEnded) {
 		let nextLevelShortcut = false;
-		[currentGameState, nextLevelShortcut] = Ui.levelEnded(mouse);
+		[currentGameState, nextLevelShortcut] = Ui.levelEnded(mouse, starsGotten);
 
 		if (nextLevelShortcut) {
 			if (currentLevel === 9) {
-				currentGameState = GAME_STATES.levelSelect
+				currentGameState = GAME_STATES.levelSelect;
 			} else {
 				newLevel(currentLevel + 1);
 				currentGameState = GAME_STATES.main;

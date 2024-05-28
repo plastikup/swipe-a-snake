@@ -190,7 +190,7 @@ export class Ui {
 		ctx.fillText(swipesRequired + ' moves', swipesDescriptionMsmnt.w + growthDescriptionMsmnt.w + 3 * evenSpacing + solvableDescriptionMsmnt.w / 2 - solvableDatumMsmnt.w / 2, canvasSize - SANDBOX_MARGIN / 2 + solvableDatumMsmnt.h + 4);
 	}
 
-	static levelEnded(mouse) {
+	static levelEnded(mouse, starsGotten) {
 		let newGameState = GAME_STATES.levelEnded;
 		let nextLevelShortcut = false;
 
@@ -213,9 +213,9 @@ export class Ui {
 		{
 			const starsY = (canvasSize / 4 + title2Msmnt.h + canvasSize / 2 + yShift) / 2;
 
-			ctx.drawImage(Ui.gui.starActive, canvasSize / 2 - buttonHeight * 1.4, starsY - buttonHeight * 0.45, buttonHeight, buttonHeight);
-			ctx.drawImage(Ui.gui.starActive, canvasSize / 2 - buttonHeight * 0.5, starsY - buttonHeight * 0.55, buttonHeight, buttonHeight);
-			ctx.drawImage(Ui.gui.starInactive, canvasSize / 2 + buttonHeight * 0.4, starsY - buttonHeight * 0.45, buttonHeight, buttonHeight);
+			ctx.drawImage(starsGotten >= 1 ? Ui.gui.starActive : Ui.gui.starInactive, canvasSize / 2 - buttonHeight * 1.4, starsY - buttonHeight * 0.45, buttonHeight, buttonHeight);
+			ctx.drawImage(starsGotten >= 2 ? Ui.gui.starActive : Ui.gui.starInactive, canvasSize / 2 - buttonHeight * 0.5, starsY - buttonHeight * 0.55, buttonHeight, buttonHeight);
+			ctx.drawImage(starsGotten === 3 ? Ui.gui.starActive : Ui.gui.starInactive, canvasSize / 2 + buttonHeight * 0.4, starsY - buttonHeight * 0.45, buttonHeight, buttonHeight);
 		}
 
 		//* buttons
