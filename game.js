@@ -211,8 +211,12 @@ function loop() {
 		[currentGameState, nextLevelShortcut] = Ui.levelEnded(mouse);
 
 		if (nextLevelShortcut) {
-			newLevel(currentLevel + 1);
-			currentGameState = GAME_STATES.main;
+			if (currentLevel === 9) {
+				currentGameState = GAME_STATES.levelSelect
+			} else {
+				newLevel(currentLevel + 1);
+				currentGameState = GAME_STATES.main;
+			}
 		}
 	}
 
