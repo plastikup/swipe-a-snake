@@ -112,7 +112,6 @@ document.addEventListener('click', function () {
 /* GAME */
 export const GAME_STATES = {
 	intro: 'intro',
-	help: 'help',
 	levelSelect: 'levelSelect',
 	main: 'main',
 	levelEnded: 'levelEnded',

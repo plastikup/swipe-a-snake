@@ -32,7 +32,10 @@ export class Ui {
 			ctx.drawImage(hoverState ? Ui.gui.playHover : Ui.gui.play, x, y, w, h + hoverState * 2);
 
 			// if click on this button
-			if (mouse.click && hoverState) newGameState = GAME_STATES.levelSelect;
+			if (mouse.click && hoverState) {
+				newGameState = GAME_STATES.levelSelect;
+				document.getElementById('instructions').hidden = true;
+			}
 		}
 		{
 			const x = canvasSize / 2 - canvasSize / 6 - buttonHeight * 1.25;
@@ -41,7 +44,9 @@ export class Ui {
 			ctx.drawImage(hoverState ? Ui.gui.helpHover : Ui.gui.help, x, y, buttonHeight, buttonHeight);
 
 			// if click on this button
-			if (mouse.click && hoverState) newGameState = GAME_STATES.help;
+			if (mouse.click && hoverState) {
+				document.getElementById('instructions').hidden = !document.getElementById('instructions').hidden;
+			}
 		}
 		{
 			const x = canvasSize / 2 + buttonHeight * 1.25;
