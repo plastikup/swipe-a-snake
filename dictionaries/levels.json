@@ -17,7 +17,7 @@
 			{ "x": 3, "y": 3 }
 		],
 		"swipesRequired": 4,
-        "levelName": "the beginning"
+		"levelName": "the beginning"
 	},
 	"2": {
 		"params": {
@@ -32,8 +32,8 @@
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a", "trigger": { "triggerRule": "replaceCell", "x": 2, "y": 3, "datum": { "cellType": "b", "trigger": { "triggerRule": "nextLevel" } } } }, { "cellType": "wW" }],
 			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "A", "trigger": { "triggerRule": "replaceCell", "x": 4, "y": 2, "datum": { "cellType": "a" } } }, { "cellType": "w" }, { "cellType": "wW" }],
-			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+			[{ "cellType": "wE" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "e" }, { "cellType": "A", "trigger": { "triggerRule": "replaceCell", "x": 4, "y": 2, "datum": { "cellType": "a" } } }, { "cellType": "wN" }, { "cellType": "w" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }, { "cellType": "w" }]
 		],
 		"snake": [
 			{ "x": 1, "y": 4, "head": true },
@@ -42,7 +42,30 @@
 			{ "x": 1, "y": 1 }
 		],
 		"swipesRequired": 9,
-        "levelName": "the corridor"
+		"levelName": "the corridor"
+	},
+	"3": {
+		"params": {
+			"width": 8,
+			"height": 8
+		},
+		"datum": [
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "p2", "portalId": "c", "portalTo": "d" }, { "cellType": "w" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "w" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "P1", "portalId": "a", "portalTo": "b" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "a" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "P2", "portalId": "d", "portalTo": "c" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "w" }, { "cellType": "p1", "portalId": "b", "portalTo": "a" }, { "cellType": "a" }, { "cellType": "e" }, { "cellType": "w" }, { "cellType": "w" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+		],
+		"snake": [
+			{ "x": 2, "y": 3, "head": true },
+			{ "x": 3, "y": 3 },
+			{ "x": 4, "y": 3 }
+		],
+		"swipesRequired": 7,
+		"levelName": "you are a maze(ing)"
 	},
 	"6": {
 		"params": {
@@ -66,29 +89,28 @@
 			{ "x": 2, "y": 3 }
 		],
 		"swipesRequired": 12,
-        "levelName": "your end"
+		"levelName": "your end"
 	},
 	"TEMPLATE": {
 		"params": {
-			"width": 8,
-			"height": 8
+			"width": 7,
+			"height": 7
 		},
 		"datum": [
-			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
-			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "w" }],
-			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
+			[{ "cellType": "w" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "wS" }, { "cellType": "w" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "wE" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "e" }, { "cellType": "wW" }],
+			[{ "cellType": "w" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "wN" }, { "cellType": "w" }]
 		],
 		"snake": [
-			{ "x": 5, "y": 3, "head": true },
-			{ "x": 4, "y": 3 },
-			{ "x": 3, "y": 3 },
-			{ "x": 2, "y": 3 }
+			{ "x": 1, "y": 3, "head": true },
+			{ "x": 2, "y": 3 },
+			{ "x": 3, "y": 3 }
 		],
-		"swipesRequired": 12
+		"swipesRequired": 4,
+		"levelName": "the carrefour"
 	}
 }
