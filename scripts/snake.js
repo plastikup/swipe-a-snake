@@ -45,15 +45,17 @@ export class Snake {
 					}
 				}
 
-				nextX = targetCell.gx + displaceX;
-				nextY = targetCell.gy + displaceY;
-				nextCell = this.gameSandbox.grid[nextY][nextX];
-
-				// if after portal the cell is a block, snake may go onto the portal
-				if (this.isSolidCollision(nextCell, nextX, nextY)) {
-					nextX = this.snakeJson[0].x + displaceX;
-					nextY = this.snakeJson[0].y + displaceY;
+				if (targetCell !== undefined) {
+					nextX = targetCell.gx + displaceX;
+					nextY = targetCell.gy + displaceY;
 					nextCell = this.gameSandbox.grid[nextY][nextX];
+
+					// if after portal the cell is a block, snake may go onto the portal
+					if (this.isSolidCollision(nextCell, nextX, nextY)) {
+						nextX = this.snakeJson[0].x + displaceX;
+						nextY = this.snakeJson[0].y + displaceY;
+						nextCell = this.gameSandbox.grid[nextY][nextX];
+					}
 				}
 			}
 
@@ -85,7 +87,7 @@ export class Snake {
 			}
 
 			//* trigger rule
-			console.log(typeof nextCell.datum.trigger)
+			console.log(typeof nextCell.datum.trigger);
 			if (typeof nextCell.datum.trigger === 'object') {
 				const triggerDatum = nextCell.datum.trigger;
 
