@@ -158,8 +158,8 @@ export class Ui {
 		}
 		{
 			//* exit
-			const hoverState = isInsideBox(SANDBOX_MARGIN / 2 - 16, SANDBOX_MARGIN / 2 - 16, 32, 32, mouse.x, mouse.y);
-			ctx.drawImage(hoverState ? Ui.gui.levelSelectHover : Ui.gui.levelSelect, SANDBOX_MARGIN / 2 - 16, SANDBOX_MARGIN / 2 - 16, 32, 32);
+			const hoverState = isInsideBox(SANDBOX_MARGIN / 2 - SANDBOX_MARGIN / 4, SANDBOX_MARGIN / 2 - SANDBOX_MARGIN / 4, SANDBOX_MARGIN / 2, SANDBOX_MARGIN / 2, mouse.x, mouse.y);
+			ctx.drawImage(hoverState ? Ui.gui.levelSelectHover : Ui.gui.levelSelect, SANDBOX_MARGIN / 2 - SANDBOX_MARGIN / 4, SANDBOX_MARGIN / 2 - SANDBOX_MARGIN / 4, SANDBOX_MARGIN / 2, SANDBOX_MARGIN / 2);
 			if (mouse.click && hoverState) {
 				const r = confirm("Are you sure you want to exit? This level's progress will not be saved.");
 				if (r) currentGameState = GAME_STATES.levelSelect;
