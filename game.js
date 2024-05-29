@@ -168,16 +168,6 @@ function loop() {
 
 	//* core
 	switch (currentGameState) {
-		case GAME_STATES.intro: {
-			break;
-		}
-
-		case GAME_STATES.loading:
-			break;
-
-		case GAME_STATES.levelSelect:
-			break;
-
 		case GAME_STATES.main:
 		case GAME_STATES.levelEnded: {
 			//* loop the main cores of the game
