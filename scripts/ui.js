@@ -261,53 +261,53 @@ export class Ui {
 }
 
 Ui.gui.play = new Image();
-Ui.gui.play.src = './assets/GUI/Buttons/Rect/PlayText/Default.png';
+Ui.gui.play.src = '/assets/GUI/Buttons/Rect/PlayText/Default.png';
 
 Ui.gui.playHover = new Image();
-Ui.gui.playHover.src = './assets/GUI/Buttons/Rect/PlayText/Hover.png';
+Ui.gui.playHover.src = '/assets/GUI/Buttons/Rect/PlayText/Hover.png';
 Ui.gui.help = new Image();
-Ui.gui.help.src = './assets/GUI/Buttons/Square/Help/Default.png';
+Ui.gui.help.src = '/assets/GUI/Buttons/Square/Help/Default.png';
 Ui.gui.helpHover = new Image();
-Ui.gui.helpHover.src = './assets/GUI/Buttons/Square/Help/Hover.png';
+Ui.gui.helpHover.src = '/assets/GUI/Buttons/Square/Help/Hover.png';
 Ui.gui.soundOff = new Image();
-Ui.gui.soundOff.src = './assets/GUI/Buttons/Square/SoundOff/Default.png';
+Ui.gui.soundOff.src = '/assets/GUI/Buttons/Square/SoundOff/Default.png';
 Ui.gui.soundOffHover = new Image();
-Ui.gui.soundOffHover.src = './assets/GUI/Buttons/Square/SoundOff/Hover.png';
+Ui.gui.soundOffHover.src = '/assets/GUI/Buttons/Square/SoundOff/Hover.png';
 Ui.gui.soundOn = new Image();
-Ui.gui.soundOn.src = './assets/GUI/Buttons/Square/SoundOn/Default.png';
+Ui.gui.soundOn.src = '/assets/GUI/Buttons/Square/SoundOn/Default.png';
 Ui.gui.soundOnHover = new Image();
-Ui.gui.soundOnHover.src = './assets/GUI/Buttons/Square/SoundOn/Hover.png';
+Ui.gui.soundOnHover.src = '/assets/GUI/Buttons/Square/SoundOn/Hover.png';
 
 Ui.gui.levelDummy = new Image();
-Ui.gui.levelDummy.src = './assets/GUI/Level/Button/Dummy.png';
+Ui.gui.levelDummy.src = '/assets/GUI/Level/Button/Dummy.png';
 Ui.gui.star0 = new Image();
-Ui.gui.star0.src = './assets/GUI/Level/Star/Group/0-3.png';
+Ui.gui.star0.src = '/assets/GUI/Level/Star/Group/0-3.png';
 Ui.gui.star1 = new Image();
-Ui.gui.star1.src = './assets/GUI/Level/Star/Group/1-3.png';
+Ui.gui.star1.src = '/assets/GUI/Level/Star/Group/1-3.png';
 Ui.gui.star2 = new Image();
-Ui.gui.star2.src = './assets/GUI/Level/Star/Group/2-3.png';
+Ui.gui.star2.src = '/assets/GUI/Level/Star/Group/2-3.png';
 Ui.gui.star3 = new Image();
-Ui.gui.star3.src = './assets/GUI/Level/Star/Group/3-3.png';
+Ui.gui.star3.src = '/assets/GUI/Level/Star/Group/3-3.png';
 
 Ui.gui.home = new Image();
-Ui.gui.home.src = './assets/GUI/Buttons/Square/Home/Default.png';
+Ui.gui.home.src = '/assets/GUI/Buttons/Square/Home/Default.png';
 Ui.gui.homeHover = new Image();
-Ui.gui.homeHover.src = './assets/GUI/Buttons/Square/Home/Hover.png';
+Ui.gui.homeHover.src = '/assets/GUI/Buttons/Square/Home/Hover.png';
 Ui.gui.play2 = new Image();
-Ui.gui.play2.src = './assets/GUI/Buttons/Square/Play/Default.png';
+Ui.gui.play2.src = '/assets/GUI/Buttons/Square/Play/Default.png';
 Ui.gui.play2Hover = new Image();
-Ui.gui.play2Hover.src = './assets/GUI/Buttons/Square/Play/Hover.png';
+Ui.gui.play2Hover.src = '/assets/GUI/Buttons/Square/Play/Hover.png';
 Ui.gui.levelSelect = new Image();
-Ui.gui.levelSelect.src = './assets/GUI/Buttons/Square/Levels/Default.png';
+Ui.gui.levelSelect.src = '/assets/GUI/Buttons/Square/Levels/Default.png';
 Ui.gui.levelSelectHover = new Image();
-Ui.gui.levelSelectHover.src = './assets/GUI/Buttons/Square/Levels/Hover.png';
+Ui.gui.levelSelectHover.src = '/assets/GUI/Buttons/Square/Levels/Hover.png';
 
 Ui.gui.starActive = new Image();
-Ui.gui.starActive.src = './assets/GUI/Level/Star/Active.png';
+Ui.gui.starActive.src = '/assets/GUI/Level/Star/Active.png';
 Ui.gui.starInactive = new Image();
-Ui.gui.starInactive.src = './assets/GUI/Level/Star/Unactive.png';
+Ui.gui.starInactive.src = '/assets/GUI/Level/Star/Unactive.png';
 
-Ui.music = new Audio('./assets/music.mp3');
+Ui.music = new Audio('/assets/music.mp3');
 
 const measureText = (text) => {
 	const metrics = ctx.measureText(text);
